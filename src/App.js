@@ -1,24 +1,27 @@
-import logo from './logo.svg';
+
 import './App.css';
+import HomePage from './components/HomePage';
+
+import Item from './components/Item';
+import Navbar from './components/Navbar';
+import Searchbar from './components/Searchbar';
+import Notestate from './context/Notes/Notestate';
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   <>
+  <Notestate>
+
+  <Navbar/>
+  <Searchbar/>
+  <HomePage/>
+  {/* <Item item="upcoming"/>    do this in further step */}
+  
+  
+  </Notestate>
+   </>
   );
 }
 
