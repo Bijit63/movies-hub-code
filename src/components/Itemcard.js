@@ -10,7 +10,10 @@ const Itemcard = (props) => {
 
   
   return (
-    <div id='card' className=" border-[1px] border-white  bg-white min-w-[170px] max-w-[170px] max-h-[250px] min-h-[250px] md:min-w-[247px] md:max-w-[247px] md:min-h-[370px] md:max-h-[370px] h-fit rounded-lg shad  md:my-8 my-4 cursor-pointer  "  >
+
+      <div className=' min-w-[170px] md:min-w-[260px] flex justify-center ' >
+
+    <div id='card' className=" border-[1px] border-white  bg-white min-w-[170px] max-w-[170px] max-h-[250px] min-h-[250px] md:min-w-[247px] md:max-w-[247px] md:min-h-[370px] md:max-h-[370px] h-fit rounded-lg   md:my-8 my-4 cursor-pointer  "  >
 
 
       
@@ -62,8 +65,8 @@ const Itemcard = (props) => {
 
 
            {/* <div className='text-xs font-normal ' >{
-        props.desc!=null?(props.desc.length>80?props.desc.slice(0,80)+ "....." :props.desc):"empty description"
-        }</div> */}
+              props.desc!=null?(props.desc.length>80?props.desc.slice(0,80)+ "....." :props.desc):"empty description"
+            }</div> */}
            
         </div>
 
@@ -74,6 +77,7 @@ const Itemcard = (props) => {
 
 
       </div>
+            </div>
   )
 }
 

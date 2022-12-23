@@ -55,8 +55,21 @@ const Item = (props) => {
 
 
   return <div>
-    
-    <div className="flex justify-between flex-wrap">
+
+
+{/* <div id="moviestype" className=" my-[30px] w-fit mx-auto px-[10px]  md:text-5xl text-2xl md:my-[45px] md:mb-[45px] ">
+       <p className="flex justify-center px-4 my-1 md:my-2" >{props.moviestype} </p>
+       
+      
+      
+      </div> */} 
+
+      
+      {/* //Start from here */}
+
+
+
+    <div className="flex justify-around flex-wrap">
 
     {items.map(
         element => {

@@ -31,9 +31,10 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
 
 }
 #title{
-  font-family: 'Noto Serif', serif;
+  /* font-family: 'Noto Serif', serif; */
   /* text-shadow: 0px 0px 1px rgb(20, 20, 20); */
   /* box-shadow: inset 0px 0px 5px black; */
+  font-family: 'Acme', sans-serif;
   
 }
 
@@ -76,7 +77,10 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
  }
 
 
-
+#moviestype{
+  font-family: 'Acme', sans-serif;
+  color: white;
+}
 /* #arrimg:active {
   content: "\f107";
 } */
