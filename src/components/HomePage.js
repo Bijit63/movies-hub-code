@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 
 import NoteContext from "../context/Notes/NoteContext";
 
@@ -9,26 +10,30 @@ const HomePage = () => {
       id="homepage"
       className="md:text-5xl text-2xl text-white  mx-[20px] md:mx-[70px]  "
     >
-      <div className=" my-[30px] md:my-[45px] md:mb-[45px] ">
+      <div className=" mt-[8px] md:mt-[50px] border-b-[2px] md:border-b-[4px] pb-[10px] md:pb-[20px] ">
        <p className="md:ml-[14px] ml-[4px]"> Latest Movies </p>
-        {a.movies("now_playing")}
-        <hr className=" border-2 md:w-[1350px] w-[344px] md:ml-[14px] ml-[4px] md:h-[2px] text-black border-white rounded-xl bg-white " />
+        <p> {a.movies("now_playing")} </p>
+        <Link to="/latest-movies"> <p className=" text-center mb-[20px] " > <button className=" md:text-lg md:px-2 md:py-1 rounded-lg shadow-lg  font-sans bg-blue-900 " >More</button> </p> </Link>
+        
       </div>
-      <div className=" my-[30px] md:my-[45px] ">
+      <div className="mt-[8px] md:mt-[50px] border-b-[2px] md:border-b-[4px] pb-[10px] md:pb-[20px] ">
        <p className="md:ml-[14px] ml-[4px]"> Top Rated  </p>
-        {a.movies("top_rated")}
-        <hr className=" border-2 md:w-[1350px] w-[344px] md:ml-[14px] ml-[4px] md:h-[2px] text-black border-white rounded-xl bg-white " />
+        <p> {a.movies("top_rated")} </p>
+        <Link to="/toprated-movies"> <p className=" text-center mb-[20px] " ><button className=" md:text-lg md:px-2 md:py-1 rounded-lg shadow-lg  font-sans bg-blue-900 " >More</button></p> </Link>
+        
       </div>
-      <div className=" my-[30px] md:my-[45px] ">
-       <p className="md:ml-[14px] ml-[4px]"> Upcoming Movies  </p>
-        {a.movies("upcoming")}
-        <hr className=" border-2 md:w-[1350px] w-[344px] md:ml-[14px] ml-[4px] md:h-[2px] text-black border-white rounded-xl bg-white " />
+      <div className=" mt-[8px] md:mt-[50px] border-b-[2px] md:border-b-[4px] pb-[10px] md:pb-[20px] ">
+        <p className="md:ml-[14px] ml-[4px]"> Upcoming Movies  </p>
+        <p> {a.movies("upcoming")} </p>
+        <Link to="/upcoming-movies"> <p className=" text-center mb-[20px] " ><button className=" md:text-lg md:px-2 md:py-1 rounded-lg shadow-lg  font-sans bg-blue-900 " >More</button></p> </Link>
+        
       </div>
 
-      <div className=" my-[30px] md:my-[45px] ">
+      <div className=" mt-[8px] md:mt-[50px] border-b-[2px] md:border-b-[4px] pb-[10px] md:pb-[20px] ">
        <p className="md:ml-[14px] ml-[4px]"> Popular Movies  </p>
-        {a.movies("popular")}
-        <hr className=" border-2 md:w-[1350px] w-[344px] md:ml-[14px] ml-[4px] md:h-[2px] text-black border-white rounded-xl bg-white " />
+        <p> {a.movies("popular")} </p>
+        <Link to="/popular-movies"> <p className=" text-center mb-[20px] " ><button className=" md:text-lg md:px-2 md:py-1 rounded-lg shadow-lg  font-sans bg-blue-900 " >More</button></p> </Link>
+        
       </div>
     </div>
   );

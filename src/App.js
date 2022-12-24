@@ -9,9 +9,10 @@ import Notestate from './context/Notes/Notestate';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
+import SearchedMovies from './components/SearchedMovies';
+import Iteminfo from './components/Iteminfo';
 
 
 
@@ -22,24 +23,54 @@ function App() {
 
   <Notestate>
   <Navbar/>
-  <Searchbar/>
+  
   
   <Switch>
           <Route exact path="/">
+          <Searchbar/>
           <HomePage/>
           </Route>
+
+
           <Route exact path="/toprated-movies">
-          <Item item="top_rated"  moviestype="Top-Rated Movies" />
+          <Searchbar/>
+          <Item  moviestype="Top-Rated Movies" url={`https://api.themoviedb.org/3/movie/top_rated?api_key=7e5e27e6b51bcfd87532d3a63a2c2646`} />
           </Route>
+
+
           <Route exact path="/latest-movies">
-          <Item item="now_playing" moviestype="Latest Movies" />
+          <Searchbar/>
+          <Item moviestype="Latest Movies" url={`https://api.themoviedb.org/3/movie/now_playing?api_key=7e5e27e6b51bcfd87532d3a63a2c2646`} />
           </Route>
+
+
           <Route exact path="/popular-movies">
-          <Item item="popular" moviestype="Popular Movies" />
+          <Searchbar/>
+          <Item moviestype="Popular Movies" url={`https://api.themoviedb.org/3/movie/popular?api_key=7e5e27e6b51bcfd87532d3a63a2c2646`} />
           </Route>
+
+
           <Route exact path="/upcoming-movies">
-          <Item item="upcoming"  moviestype="Upcoming Movies" />
+          <Searchbar/>
+          <Item  moviestype="Upcoming Movies" url={`https://api.themoviedb.org/3/movie/upcoming?api_key=7e5e27e6b51bcfd87532d3a63a2c2646`} />
           </Route>
+
+
+          <Route exact path={`/search=${localStorage.getItem('search')}`}>
+          <Searchbar/>
+          <SearchedMovies/>
+          </Route>
+
+
+          <Route exact path={`/${localStorage.getItem('title')}`}>
+        
+          <Iteminfo id={localStorage.getItem('id')} />
+          </Route>
+
+
+
+
+        
 
           
           

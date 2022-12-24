@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 // import { Link } from 'react-router-dom'
 import logo from "../images/logo.png"
 
@@ -30,15 +31,15 @@ const Navbar = () => {
 
 
   return (
-    <nav  className='  z-20 sticky  top-0 md:h-[120px] h-[90px]  '>
-        <ul id='navbar' className=' bg-amber-600 md:h-[80px]   h-[60px] z-10 box-border shadow-md flex justify-between items-center '>
+    <nav  className='  z-20 sticky  top-0 md:h-[100px] h-[90px]  '>
+        <ul id='navbar' className=' bg-amber-600 md:h-[70px]   h-[60px] z-10 box-border shadow-md flex justify-between items-center '>
 
 
           
 
 
 
-            <li className='text-white   md:text-5xl text-2xl flex items center  '> <img className=' w-[32px] mb-[6px] mx-1 md:mx-3 md:w-[60px] md:mb-[9px] ' src={logo} alt="" /> <button id='heading'  >Movies - Hub </button> </li>
+            <Link to="/"><li className='text-white   md:text-4xl text-2xl flex items center  '> <img className=' w-[32px] mb-[6px] mx-1 md:mx-3 md:w-[45px] md:mb-[9px] ' src={logo} alt="" /> <button id='heading'  >Movies - Hub </button> </li></Link>
 
 
 

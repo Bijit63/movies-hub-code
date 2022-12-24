@@ -9,9 +9,7 @@ const Item = (props) => {
 
 
     useEffect(() => {
-      fetch(
-        `https://api.themoviedb.org/3/movie/${props.item}?api_key=7e5e27e6b51bcfd87532d3a63a2c2646`
-      )
+      fetch(props.url)
         .then((info) => {
           return info.json();
         })
@@ -57,15 +55,15 @@ const Item = (props) => {
   return <div>
 
 
-{/* <div id="moviestype" className=" my-[30px] w-fit mx-auto px-[10px]  md:text-5xl text-2xl md:my-[45px] md:mb-[45px] ">
-       <p className="flex justify-center px-4 my-1 md:my-2" >{props.moviestype} </p>
+{/* <div  className=" my-[30px] w-fit mx-auto px-[10px]   md:my-[45px] md:mb-[45px] "> */}
+       <p id="moviestype" className=" md:text-5xl text-2xl md:mt-[20px] flex justify-center px-4 my-1 md:my-2" >{props.moviestype} </p>
        
       
       
-      </div> */} 
+      {/* </div>  */}
 
       
-      {/* //Start from here */}
+  
 
 
 
@@ -74,7 +72,7 @@ const Item = (props) => {
     {items.map(
         element => {
             return <Itemcard  title={element.title} image={element.poster_path
-            } desc={element.overview} key={element.id} source={element.title} rating={element.vote_average} total={element.vote_count} date={element.release_date
+            } id={element.id} desc={element.overview} key={element.id} source={element.title} rating={element.vote_average} total={element.vote_count} date={element.release_date
             } genrenames={element.genre_ids.map(id=>  {return genre.map(details=>{ return id===details.id?details.name:' ' } )
             }
             

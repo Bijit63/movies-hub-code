@@ -1,7 +1,18 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 
 const Itemcard = (props) => {
+
+  
+  
+
+  const clicked=()=>{
+                      localStorage.setItem('id',props.id)
+                      localStorage.setItem('title',props.title)
+                      console.log(props.id)
+                      console.log(props.title)
+                    }
 
 
 
@@ -11,9 +22,10 @@ const Itemcard = (props) => {
   
   return (
 
-      <div className=' min-w-[170px] md:min-w-[260px] flex justify-center ' >
+      <Link to={`/${props.title}`}>
+        <div className=' min-w-[170px] md:min-w-[260px] flex justify-center ' onClick={clicked} >
 
-    <div id='card' className=" border-[1px] border-white  bg-white min-w-[170px] max-w-[170px] max-h-[250px] min-h-[250px] md:min-w-[247px] md:max-w-[247px] md:min-h-[370px] md:max-h-[370px] h-fit rounded-lg   md:my-8 my-4 cursor-pointer  "  >
+    <div id='card' className=" border-[1px] border-white  bg-white min-w-[170px] max-w-[170px] max-h-[250px] min-h-[250px] md:min-w-[247px] md:max-w-[247px] md:min-h-[370px] md:max-h-[370px] h-fit rounded-lg   md:my-6 my-4 cursor-pointer  "  >
 
 
       
@@ -78,6 +90,7 @@ const Itemcard = (props) => {
 
       </div>
             </div>
+            </Link>
   )
 }
 
