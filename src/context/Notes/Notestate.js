@@ -15,7 +15,7 @@ const Notestate = (props)=>{
     const movies = (type)=>
         {
             return(
-            <Item limit={"yes"} url={`https://api.themoviedb.org/3/movie/${type}?api_key=7e5e27e6b51bcfd87532d3a63a2c2646`} />
+            <Item limit={"yes"} wrap='wrap' url={`https://api.themoviedb.org/3/movie/${type}?api_key=7e5e27e6b51bcfd87532d3a63a2c2646`} />
                     )
         }
 

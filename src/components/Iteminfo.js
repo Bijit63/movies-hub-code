@@ -1,40 +1,149 @@
 import React from 'react'
 import { useEffect , useState } from 'react'
+import CastCard from './CastCard'
+import Item from "./Item.js"
+import YouTube  from 'react-youtube'
 
 const Iteminfo = (props) => {
 
     const [details, setdetails] = useState({})
     const [year,setyear] = useState()
     const [rating,setrating] = useState()
+    const [genre,setgenre] = useState([])
+    const [cast,setcast]= useState([])
+    const [videoID,setvideoID]= useState()
+   
+    
+    
+    
 
     useEffect(() => {
-        fetch(`https://api.themoviedb.org/3/movie/${props.id}?api_key=7e5e27e6b51bcfd87532d3a63a2c2646&language=en-US`).then(data=> {return data.json()}).
-        
-        then(info=> {setdetails(info)
+        fetch(`https://api.themoviedb.org/3/movie/${props.id}?api_key=7e5e27e6b51bcfd87532d3a63a2c2646&language=en-US`).then(data=> {return data.json()}).then(info=> {setdetails(info)
             const date= new Date(info.release_date);
             setyear(date.getFullYear())
           
             const rate = info.vote_average
            
             setrating(rate.toString().slice(0,3))
-          }  )
 
 
+              setgenre(info.genres)
+          }  ) 
         
+        
+          fetch(`https://api.themoviedb.org/3/movie/${props.id}/credits?api_key=7e5e27e6b51bcfd87532d3a63a2c2646&language=en-US`).then(data=> {return data.json()}).then(info=>{ setcast(info.cast) 
+         }) 
 
+
+
+          fetch(`https://api.themoviedb.org/3/movie/${props.id}/videos?api_key=7e5e27e6b51bcfd87532d3a63a2c2646&language=en-US`).then(data=> {return data.json()}).then(info=>{ info.results.map(element=>
+          {
+            
+            if(element.type==='Trailer')
+            {
+              setvideoID(element.key)
+            }
+          }) 
+        }) 
         
-          
-          
-    
         
+        // fetch(`https://api.themoviedb.org/3/movie/${props.id}/images?api_key=7e5e27e6b51bcfd87532d3a63a2c2646&language=en-US`).then(info=>{ return info.json()}).then(data=> {console.log(data)})
+        
+        
+        
+        
+        
+        
+      },[] )  
       
-    }, [])  
+      
+      
+      const rightclick=()=>{
+        
+        document.getElementById('slider').scrollLeft=document.getElementById('slider').scrollLeft+340;
+        // console.log(shift)
+        // setshift(shift+170)
+      }
+      
+      const leftclick=()=>{
+        document.getElementById('slider').scrollLeft=document.getElementById('slider').scrollLeft-340;
+        }
+
+
+        const rightclick1=()=>{
+          
+          document.getElementById('slider1').scrollLeft=document.getElementById('slider1').scrollLeft+260;
+          // console.log(shift)
+          // setshift(shift+170)
+        }
+        
+        const leftclick1=()=>{
+          document.getElementById('slider1').scrollLeft=document.getElementById('slider1').scrollLeft-260;
+        }
+        
+        
+        
+        
+        // for bigger screen 
+
+
+        
+       
+          const opts2={
+            height :'415',
+            width : '297'
+           }
+           
+      
+       
+         const opts={
+          height :'485',
+          width : '365'
+                 }
+
+
+
+
+         
+         const right=()=>{
+           document.getElementById('sliderposter').scrollLeft=document.getElementById('sliderposter').scrollLeft+390;
+           document.getElementById('dot2').className='mx-[5px] bg-gray-400 rounded-full mt-[20px] w-[10px] h-[10px] '
+            document.getElementById('dot1').className='mx-[5px] bg-gray-400 rounded-full mt-[20px] w-[5px] h-[5px] '
+           
+          }
+          const left =()=>{
+            document.getElementById('sliderposter').scrollLeft=document.getElementById('sliderposter').scrollLeft-390;
+            document.getElementById('dot1').className='mx-[5px] bg-gray-400 rounded-full mt-[20px] w-[10px] h-[10px] '
+            document.getElementById('dot2').className='mx-[5px] bg-gray-400 rounded-full mt-[20px] w-[5px] h-[5px] '
+           
+         }
+
+
+
+
+        //  for smaller screen 
+         const opts1={
+          height :'426',
+          width : '296'
+         }
+
+         
+         const right1=()=>{
+           document.getElementById('sliderposter1').scrollLeft=document.getElementById('sliderposter').scrollLeft+390;
+           document.getElementById('sdot2').className='mx-[5px] bg-gray-400 rounded-full mt-[20px] w-[10px] h-[10px] '
+            document.getElementById('sdot1').className='mx-[5px] bg-gray-400 rounded-full mt-[20px] w-[5px] h-[5px] '
+           
+          }
+          const left1 =()=>{
+            document.getElementById('sliderposter1').scrollLeft=document.getElementById('sliderposter').scrollLeft-390;
+            document.getElementById('sdot1').className='mx-[5px] bg-gray-400 rounded-full mt-[20px] w-[10px] h-[10px] '
+            document.getElementById('sdot2').className='mx-[5px] bg-gray-400 rounded-full mt-[20px] w-[5px] h-[5px] '
+           
+         }
+
 
     
-
-    
-    
-
+        
     
 
 
@@ -42,78 +151,378 @@ const Iteminfo = (props) => {
     
 
   return (
-    <div id='iteminfo' className='min-h-[100vh] text-white flex mt-3 w-fit mx-auto ' >
-         
-
-         <div className='  md:w-[800px] md:pl-[50px] md:pr-[60px] ' >
+    <div  className={`min-h-[100vh] flex flex-col mx-auto `} >
 
 
-        <div id='infotitle' className='  h-fit py-2   mx-auto   text-4xl   ' >
-            {details.original_title + '  '+ `( ` +year+ ` )`}
+
+
+
+
+
+
+      
+      {/* <div id= 'backiteminfo'>BACKGROUND IMAGE </div> */}
+
+      <div id='iteminfo' className='   text-white flex mx-auto md:mt-3 w-fit  ' >
+
+    
+
+         <div className=' md:px-[20px] md:max-w-[820px]  md:pr-[60px] ' >
+
+
+
+
+
+
+
+
+
+
+
+
+          {/* HEADING */}
+
+
+        <h1 id='infotitle' className='  h-fit py-2  text-center md:text-left mx-auto text-2xl  md:text-4xl   ' >
+            {details.original_title +  " ( " +year+ " )"}
+        </h1>
+
+
+
+
+
+
+
+
+        {/* GENRE PART  */}
+       
+
+        <div  className='   md:my-3 my-1  text-center md:text-left  '>
+
+
+
+        <div className=' border-t-2 md:pt-[15px] py-[5px]  '>
+          <span className='border-2 text-xs md:text-base rounded-md mr-[10px] px-[4px] py-[2px] md:px-[5px] md:py-[2px]' >{details.adult===false?"PG - 13":"R - Rated"}</span>
+          <span id='infogenre' className=' text-sm md:text-lg md:px-[4px] md:ml-[20px] md:pt-[3px]'>{genre.map( element=> {return element.name+" " })}</span>
         </div>
-        <hr className=' md:mt-[5px] md:border-[1px] bg-white ' />
-
-        <div className='flex flex-col  mt-6  ' >
-           <p className=' md:text-lg font-serif' >Summary :</p> 
-            <p id='infosummary' className=' md:mt-[5px] ' >{details.overview}</p>  
+        
 
 
+        </div>
+
+
+
+
+
+
+
+
+
+        {/* IMAGE PART FOR SMALLER SCREEN */}
+
+      
+        <div className='flex md:hidden flex-col' >
+
+          <div  className='flex items-center justify-center mx-[20px]  '>
+
+          
+
+        <i onClick={left1} class="fa-solid fa-caret-left bg-white text-black text-xl px-[1px]"></i>
+
+
+          <div id='sliderposter1' className=' w-[300px] bg-red-200  flex  scroll-smooth whitespace-nowrap  overflow-hidden ' >
+
+           
+
+        <img id='smallimg' className='  border-2 shadow-xl max-h-[430px] min-h-[430px]  max-w-[300px]  min-w-[300px] ' src={'https://www.themoviedb.org/t/p/w440_and_h660_face'   +details.poster_path} alt="" />
+            
+
+
+
+
+        
+          <YouTube id='youtube1' className=' flex items-center justify-center border-2 ' opts={opts1} videoId={videoID} />
+
+
+       
+
+          </div>
+        
+          <i onClick={right1} class="fa-solid fa-caret-right bg-white text-black text-xl px-[1px]"></i>
+
+          </div>
+
+
+        {/* dots  */}
+        <div className='flex items-center justify-center'>
+        <p id='sdot1' className='mx-[5px] bg-gray-400 rounded-full mt-[20px] w-[10px] h-[10px] ' ></p>
+        <p id='sdot2' className='mx-[5px] bg-gray-400 rounded-full mt-[20px] w-[5px] h-[5px] ' ></p>
+        </div>
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+        {/* SUMMARY PART */}
+
+        <div className=' text-center md:text-left mx-[10px] md:mx-0  mt-6 border-2 ' >
+           <p className=' md:text-xl bg-black font-serif font-bold border-b-2 px-[10px] py-[5px]' >Summary </p> 
+            <p id='infosummary' className=' md:mt-[5px] px-[11px] py-[4px]  ' >{details.overview}</p>  
         </div >
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+          
+        {/* ADDitional Details Part  */}
+
+          <div className='flex flex-col justify-center md:items-start items-center mt-[10px]' >
+
         
           
-        <div className=' flex  my-3 items-center         ' >  <p className='font-semibold text-lg ' >{details.status} -  </p>   <p>{details.release_date}</p> </div>
+        <div className=' flex  md:my-[6px] my-[5px] items-center    ' >  <p className='font-semibold  md:text-lg border-2 bg-black px-2 w-[100px]     ' > {details.status}  </p>   <p className='border-r-2 border-y-2 py-[2px]  px-2 w-[140px] text-sm md:text-base '>{details.release_date}</p> </div>
 
-        <div className=' flex  my-3 items-center         ' >  <p className='font-semibold text-lg ' >Runtime -  </p> <p>{details.runtime} minutes</p> </div>
+        <div className=' flex  md:my-[6px] my-[5px] items-center        ' >  <p className='font-semibold  md:text-lg border-2 bg-black px-2 w-[100px]   ' >Runtime   </p> <p className='border-r-2 border-y-2 py-[2px] px-2 w-[140px] text-sm md:text-base '> {details.runtime} minutes</p> </div>
 
 
-        <div className=' flex  my-3 items-center        ' >  <p className='font-semibold text-lg ' >Ratings -  </p> <p>{rating} ({details.vote_count})</p> </div>
+        <div className=' flex  md:my-[6px] my-[5px] items-center         ' >  <p className='font-semibold  md:text-lg border-2 bg-black px-2 w-[100px]  ' >Ratings   </p> <p className='border-r-2 border-y-2 py-[2px]   px-2 w-[140px] text-sm md:text-base '> {rating} ({details.vote_count})</p> </div>
         
         
+          </div>
         
+
+
+
+
+
+
+
 
        
 
-        <div className='flex  my-3 items-center       ' >  <p className='font-semibold text-lg ' >Budget -  </p> <p>{details.budget+' $'}</p> </div>
-        <div className='flex  my-3 items-center       ' >  <p className='font-semibold text-lg ' >Box Office Collection -  </p> <p>{details.revenue+' $'}</p> </div>
+      
+        {/* WatchNow Part  */}
+        
+
+
+
+        {/* <div className='md:mt-[30px] bg-amber-600 text-black font-semibold rounded-xl mx-auto w-fit md:px-[10px] md:py-[5px] '>
+
+         <a href={details.homepage} rel="noreferrer" target='_blank' >Watch Now</a>  
+  </div> */}
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          {/* IMAGE PART FOR BIGGER */}
+
+      
+        <div className='hidden md:flex flex-col' >
+
+          <div  className=' hidden md:flex items-center justify-start mx-[20px]  '>
+
+          
+
+        <i onClick={left} class="fa-solid fa-caret-left bg-white text-black text-xl px-[1px]"></i>
+
+
+          <div id='sliderposter' className='  lg:w-[370px] md:w-[300px]  flex  scroll-smooth whitespace-nowrap  overflow-hidden ' >
+
+           
+
+        <img id='bigimg' className='  border-2 shadow-xl lg:max-h-[490px] lg:min-h-[490px] lg:max-w-[370px]  lg:min-w-[370px] md:max-h-[420px] md:min-h-[420px] md:max-w-[300px]  md:min-w-[300px] ' src={'https://www.themoviedb.org/t/p/w440_and_h660_face'   +details.poster_path} alt="" />
+            
+
+
+
+
+        
+          <YouTube id='youtube' className=' hidden lg:flex items-center justify-center border-2 ' opts={opts} videoId={videoID} />
+          <YouTube id='youtube' className=' md:flex lg:hidden items-center justify-center border-2 ' opts={opts2} videoId={videoID} />
+
+
+       
+
+          </div>
+        
+          <i onClick={right} class="fa-solid fa-caret-right bg-white text-black text-xl px-[1px]"></i>
+
+          </div>
+
+
+
+        {/* dots  */}
+        <div className='flex items-center justify-center'>
+        <p id='dot1' className='mx-[5px] bg-gray-400 rounded-full mt-[20px] w-[10px] h-[10px] ' ></p>
+        <p id='dot2' className='mx-[5px] bg-gray-400 rounded-full mt-[20px] w-[5px] h-[5px] ' ></p>
+        </div>
+
+
+
+        </div>
+
+
+
+         </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+         
+         {/* CAST PART */}
+
+
+         
+            
+
+
+          <div className=' border-t-2  md:border-none md:bg-transparent flex flex-col justify-center mt-[10px] md:mt-[0px] ' >
+
+         <h1 id='infotitle' className='   text-center md:mx-auto text-white  h-fit py-2 md:min-w-[1190px] md:max-w-[1190px] md:mt-[50px]   md:text-4xl text-2xl   ' >
+            CAST
+      
+        </h1>
+
+
+          <div className='flex items-center cursor-pointer justify-center ' >
+
+            <div className='hidden md:flex' > <i id='leftclick' onClick={leftclick} className=" fa-solid fa-caret-left  md:float-none mx-[0px] lg:mx-[65px] md:mx-[30px] bg-slate-300 md:px-[12px] md:w-fit md:py-[7px] text-xl md:rounded-full text-black shadow-lg border-[2px] hover:border-white hover:text-white hover:bg-black hover:duration-300 border-black "></i>
+          </div>
+
+         
+          <div id='slider'  className='cast flex  justify-between text-white  md:py-5 overflow-x-scroll md:overflow-hidden scroll-smooth whitespace-nowrap  ' >
+            {cast.map(element=> {return <CastCard image={element.profile_path} key={element.id} name={element.name} character={element.character} /> })}
+          </div>
+
+
+
+          <div className='hidden md:flex' >
+            <i id='rightclick' onClick={rightclick} className=" fa-solid fa-caret-right  md:float-none mx-[0px] lg:mx-[65px] md:mx-[30px] bg-slate-300 md:px-[12px] md:w-fit md:py-[7px] text-xl md:rounded-full text-black shadow-lg border-[2px] hover:border-white hover:text-white hover:bg-black hover:duration-300 border-black "></i>
+            </div>
+
+
+
+            
+</div>
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+{/* Similar Movies Part */}
+
+<div className='border-t-2 md:border-none mt-[20px] md:mt-0' >
+<h1 id='infotitle' className=' text-2xl  text-center  text-white  h-fit py-2  md:mt-[50px]   md:text-4xl   ' >
+            SIMILAR MOVIES
+        
+        </h1>
+
+
+
+        <div className='flex items-center cursor-pointer justify-center  ' >
+
+
+        <div className='hidden md:flex' >
+        <i id='leftclick1' onClick={leftclick1} className=" fa-solid fa-caret-left lg:mx-[38px] md:mx-[25px] mx-[0px] bg-slate-300 md:px-[12px] min-w-fit max-w-fit md:py-[7px] text-xl rounded-full text-black shadow-lg border-[2px] hover:border-white hover:text-white hover:bg-black hover:duration-300 border-black "></i>
+        </div>
+
+
+<div id='slider1'  className='cast flex justify-between text-white  md:py-5 overflow-x-scroll md:overflow-hidden scroll-smooth whitespace-nowrap  ' >
+  <Item  url={`https://api.themoviedb.org/3/movie/${props.id}/similar?api_key=7e5e27e6b51bcfd87532d3a63a2c2646&language=en-US&page=1`} wrap="flex-nowrap" h="md:min-h-[340px] md:max-h-[340px] "  w=" max-w-[150px] min-w-[150px] md:min-w-[220px] md:max-w-[220px]
+  " wimg=" min-w-[147px] max-w-[147px] md:min-w-[217px] md:max-w-[217px] "    /> 
+</div>
+
+      <div className='hidden md:flex' >
+      <i id='rightclick1' onClick={rightclick1} className=" fa-solid fa-caret-right lg:mx-[38px] md:mx-[25px] mx-[0px] bg-slate-300 md:px-[12px] min-w-fit max-w-fit md:py-[7px] text-xl rounded-full text-black shadow-lg border-[2px] hover:border-white hover:text-white hover:bg-black hover:duration-300 border-black "></i>
+      </div>
+
+
+  
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         
 
 
 
-        <div className='md:mt-[30px] bg-amber-600 text-black font-semibold rounded-xl mx-auto w-fit md:px-[10px] md:py-[5px] '>
-
-         <a href={details.homepage} target='_blank' >Book Tickets Now</a>  
-        </div>
-
-
-
-        <div className=' md:my-[20px] ' >
-
-        <div className=' text-center  flex flex-col items-center ' >
-
-          <p id='infoprod' className='text-2xl w-fit b md:mb-[6px] md:mt-[13px] border-b-[2px] ' >Production company</p>
-          {/* <img className=' border-black border-2 md:w-[200px] bg-white md:mt-[4px]'  src={"https://image.tmdb.org/t/p/original"+details.production_companies[0].logo_path} alt="" /> */}
-
-        </div>
-
-        </div>
 
 
 
 
 
-
-        </div>
-
-        <div className='  flex justify-center ' >
-        <img className=' border-2 shadow-xl md:max-h-[500px] md:min-h-[500px] md:max-w-[390px] md:min-w-[390px] ' src={'https://www.themoviedb.org/t/p/w440_and_h660_face'   +details.poster_path} alt="" />
-        </div>
-
-
-       
 
     </div>
   )

@@ -22,10 +22,10 @@ const Itemcard = (props) => {
   
   return (
 
-      <Link to={`/${props.title}`}>
+      <a href={`/${props.title}`}>
         <div className=' min-w-[170px] md:min-w-[260px] flex justify-center ' onClick={clicked} >
 
-    <div id='card' className=" border-[1px] border-white  bg-white min-w-[170px] max-w-[170px] max-h-[250px] min-h-[250px] md:min-w-[247px] md:max-w-[247px] md:min-h-[370px] md:max-h-[370px] h-fit rounded-lg   md:my-6 my-4 cursor-pointer  "  >
+    <div id='card' className={` border-[1px] border-white  bg-white min-w-[170px] max-w-[170px] max-h-[250px] min-h-[250px] md:min-w-[247px] md:max-w-[247px] md:min-h-[370px] md:max-h-[370px] ${props.w} ${props.h}  h-fit rounded-lg   md:my-6 my-4 cursor-pointer  `}  >
 
 
       
@@ -35,14 +35,12 @@ const Itemcard = (props) => {
  
 
 
-         <div className=" md:min-h-[285px] md:max-h-[285px] min-h-[180px] max-h-[180px] md:my-0  items-center " >
+         <div className=" md:min-h-[285px] md:max-h-[285px] min-h-[180px]  max-h-[180px] md:my-0  items-center " >
 
-          <div id='rating' className='  z-10 absolute font-bold flex justify-center translate-x-[135px] translate-y-[10px] md:text-sm rounded-full text-xs md:p-[5px] md:max-w-[30px] md:min-w-[30px] p-[4px] md:pb-[6px] md:translate-x-[205px] md:translate-y-[10px] bg-amber-500 shadow-md' >
-           {parseFloat(props.rating)}
-           </div>
+        
 
 
-          <img id='image' className=" max-h-[180px] min-h-[180px]  max-w-[168px] min-w-[168px]  md:max-h-[285px] md:min-h-[285px] md:max-w-[245px] md:min-w-[245px] mx-auto rounded-t-md" src={props.image!=null?"https://www.themoviedb.org/t/p/w440_and_h660_face"+props.image:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/2048px-No_image_available.svg.png"}  alt="" />
+          <img id='image' className={` max-h-[180px] min-h-[180px]  max-w-[168px] min-w-[168px]  md:max-h-[285px] md:min-h-[285px] md:max-w-[245px] md:min-w-[245px] ${props.wimg} mx-auto rounded-t-md` } src={props.image!=null?"https://www.themoviedb.org/t/p/w440_and_h660_face"+props.image:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/2048px-No_image_available.svg.png"}  alt="" />
 
 
        </div>
@@ -59,12 +57,13 @@ const Itemcard = (props) => {
            {/* Rating - {props.rating}({props.total}) */}
 
 
-           <div  className='text-black md:text-[17px] md:h-[45px] h-[38px] text-xs flex-col font-semibold flex md:font-extrabold items-center justify-center bg-amber-600 md:pt-[7px] pt-[2px] ' >
+           <div  className={`text-black md:text-[17px] md:h-[45px] h-[38px] ${props.rounded} text-xs flex-col font-semibold flex md:font-extrabold items-center justify-center bg-amber-600 md:pt-[7px] pt-[2px] `} >
             
-            <div className='  ' id='title' >{props.title.length<28?props.title:props.title.slice(0,27)+"..."}</div>
+            <p className='  ' id='title' >{props.title.length<28?props.title:props.title.slice(0,27)+"..."}</p>
 
-           <div className='date text-[10px] md:text-xs text-center font-bold md:my-[2px] text-black  pb-[1px] '>({props.date })</div>
+           <p className='date text-[10px] md:text-xs text-center font-bold md:my-[2px] text-black  pb-[1px] '>({props.date })</p>
            </div>
+
 
 
 
@@ -90,7 +89,7 @@ const Itemcard = (props) => {
 
       </div>
             </div>
-            </Link>
+            </a>
   )
 }
 

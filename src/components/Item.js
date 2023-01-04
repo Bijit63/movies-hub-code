@@ -20,7 +20,7 @@ const Item = (props) => {
         .then((data) =>  {
                           props.limit==="yes"?setitems(data.results.slice(0,5)):setitems(data.results)
                           
-                          console.log(data.results)
+                          // console.log(data.results)
         
                          }
       );
@@ -56,7 +56,9 @@ const Item = (props) => {
 
 
 {/* <div  className=" my-[30px] w-fit mx-auto px-[10px]   md:my-[45px] md:mb-[45px] "> */}
-       <p id="moviestype" className=" md:text-5xl text-2xl md:mt-[20px] flex justify-center px-4 my-1 md:my-2" >{props.moviestype} </p>
+       <p id="moviestype" className={` md:text-5xl text-2xl  flex justify-center px-4 ` }>{props.moviestype} </p>
+
+       {/* <p id="moviestype" className={` md:text-5xl text-2xl md:mt-[20px] flex justify-center px-4 my-1 md:my-2` }>{props.moviestype} </p> */}
        
       
       
@@ -67,11 +69,11 @@ const Item = (props) => {
 
 
 
-    <div className="flex justify-around flex-wrap">
+    <div className={`flex justify-around flex-wrap ${props.wrap} `}>
 
     {items.map(
         element => {
-            return <Itemcard  title={element.title} image={element.poster_path
+            return <Itemcard rounded={props.rounded} title={element.title} w={props.w} h={props.h} wimg={props.wimg} image={element.poster_path
             } id={element.id} desc={element.overview} key={element.id} source={element.title} rating={element.vote_average} total={element.vote_count} date={element.release_date
             } genrenames={element.genre_ids.map(id=>  {return genre.map(details=>{ return id===details.id?details.name:' ' } )
             }

@@ -28,6 +28,7 @@ const Searchbar = () => {
           const keypress=(e)=>{
             if(e.key==="Enter")
             {
+              
               localStorage.setItem('search',`${value}`)
              
             }
@@ -42,10 +43,10 @@ const Searchbar = () => {
 
 
 
-         <Link to={`/search=${value}`}> <div id='searchicon' onClick={onsubmit} className=' hidden cursor-pointer  bg-[#0e082437] h-[30px] md:h-[50px]  md:border-r-[1px] border-t-[1px] border-b-[1px] w-[25px] md:flex justify-center  md:rounded-r-full items-center md:w-[50px] border-white' >
+         <a href={`/search=${value}`}> <div id='searchicon' onClick={onsubmit} className=' hidden cursor-pointer  bg-[#0e082437] h-[30px] md:h-[50px]  md:border-r-[1px] border-t-[1px] border-b-[1px] w-[25px] md:flex justify-center  md:rounded-r-full items-center md:w-[50px] border-white' >
         <img src={search} className=" h-[15px] md:h-[16px] rounded-r-2xl  " alt="" />
 
-        </div></Link>
+        </div></a>
 
         {/* {a.searchmovie(value)} */}
     </form>

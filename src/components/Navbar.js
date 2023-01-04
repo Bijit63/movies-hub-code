@@ -9,7 +9,7 @@ const Navbar = () => {
         document.getElementById('leftmenu').className="flex translate-x-0 absolute ease-in-out duration-100 top-0 right-0 flex-col  bg-[#82C3EC] h-[100vh] w-[200px] md:w-[350px]"
     }
     const crossclicked=()=>{
-        document.getElementById('leftmenu').className="hidden translate-x-[1000px] ease-in-out duration-100 absolute top-0 right-0 flex flex-col  bg-[#82C3EC] h-[100vh] w-[200px] md:w-[350px]"
+        document.getElementById('leftmenu').className=" translate-x-[1000px] ease-in-out duration-100 absolute top-0 right-0 flex flex-col  bg-[#82C3EC] h-[100vh] w-[200px] md:w-[350px]"
     }
     
 
@@ -69,7 +69,7 @@ const Navbar = () => {
 
 
                 
-            <ul id='leftmenu'  className="hidden translate-x-[1000px] absolute top-0 right-0 flex-col  bg-[#82C3EC] h-[100vh] w-[200px] md:w-[350px]">
+            <ul id='leftmenu'  className="translate-x-[1000px] absolute top-0 right-0 flex-col  bg-[#82C3EC] h-[100vh] w-[200px] md:w-[350px]">
 
                 
                     <li  className=' h-[60px] md:h-[80px] border-b-2 bg-black my-0 flex flex-row' >  <span id='cross' className=' ml-[15px] md:ml-[28px] md:text-[40px] text-[28px] items-center flex cursor-pointer ' onClick={crossclicked} >x</span> </li>

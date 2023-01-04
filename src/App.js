@@ -13,12 +13,13 @@ import {
 } from "react-router-dom";
 import SearchedMovies from './components/SearchedMovies';
 import Iteminfo from './components/Iteminfo';
+import Footer from './components/Footer';
 
 
 
 function App() {
   return (
-   <>
+   <div className='overflow-hidden min-h-[100vh] min-w-[98vw] '>
    <Router>
 
   <Notestate>
@@ -70,11 +71,13 @@ function App() {
 
 
 
+
         
 
           
           
   </Switch>
+    <Footer/>
 
   
   {/* <Item item="upcoming"/>    do this in further step */}
@@ -82,7 +85,7 @@ function App() {
   
   </Notestate>
    </Router>
-   </>
+   </div>
   );
 }
 
