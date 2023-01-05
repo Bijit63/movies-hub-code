@@ -31,7 +31,7 @@ const Navbar = () => {
 
 
   return (
-    <nav  className='  z-20 sticky  top-0 md:h-[100px] h-[90px]  '>
+    <nav  className='  z-20 sticky  top-0 md:h-[70px] h-[60px]  '>
         <ul id='navbar' className=' bg-amber-600 md:h-[70px]   h-[60px] z-10 box-border shadow-md flex justify-between items-center '>
 
 

@@ -20,7 +20,8 @@ const Item = (props) => {
         .then((data) =>  {
                           props.limit==="yes"?setitems(data.results.slice(0,5)):setitems(data.results)
                           
-                          // console.log(data.results)
+                          console.log(data.results)
+                         
         
                          }
       );
@@ -44,7 +45,7 @@ const Item = (props) => {
 
 
 
-        console.log(data.results)
+     
         
       
       });
@@ -73,7 +74,7 @@ const Item = (props) => {
 
     {items.map(
         element => {
-            return <Itemcard rounded={props.rounded} title={element.title} w={props.w} h={props.h} wimg={props.wimg} image={element.poster_path
+            return <Itemcard rounded={props.rounded} backdrop={element.backdrop_path} title={element.title} w={props.w} h={props.h} wimg={props.wimg} image={element.poster_path
             } id={element.id} desc={element.overview} key={element.id} source={element.title} rating={element.vote_average} total={element.vote_count} date={element.release_date
             } genrenames={element.genre_ids.map(id=>  {return genre.map(details=>{ return id===details.id?details.name:' ' } )
             }

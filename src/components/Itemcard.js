@@ -10,6 +10,7 @@ const Itemcard = (props) => {
   const clicked=()=>{
                       localStorage.setItem('id',props.id)
                       localStorage.setItem('title',props.title)
+                      localStorage.setItem('backdrop',props.backdrop)
                       console.log(props.id)
                       console.log(props.title)
                     }

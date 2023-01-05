@@ -65,7 +65,7 @@ function App() {
 
           <Route exact path={`/${localStorage.getItem('title')}`}>
         
-          <Iteminfo id={localStorage.getItem('id')} />
+          <Iteminfo backdrop={localStorage.getItem('backdrop')} id={localStorage.getItem('id')} />
           </Route>
 
 

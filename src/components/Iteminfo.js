@@ -35,7 +35,7 @@ const Iteminfo = (props) => {
          }) 
 
 
-
+          // eslint-disable-next-line 
           fetch(`https://api.themoviedb.org/3/movie/${props.id}/videos?api_key=7e5e27e6b51bcfd87532d3a63a2c2646&language=en-US`).then(data=> {return data.json()}).then(info=>{ info.results.map(element=>
           {
             
@@ -47,13 +47,21 @@ const Iteminfo = (props) => {
         }) 
         
         
-        // fetch(`https://api.themoviedb.org/3/movie/${props.id}/images?api_key=7e5e27e6b51bcfd87532d3a63a2c2646&language=en-US`).then(info=>{ return info.json()}).then(data=> {console.log(data)})
+
+
+        // backdrop  
+
+        
+        let text1 = "https://image.tmdb.org/t/p/original";
+        let text2 = `${localStorage.getItem('backdrop')}`;
+        let  a = text1.concat(text2);
+       
+        document.getElementById('backiteminfo').style=`background: url(${a}); background-repeat: repeat ;background-size: 100vw 100% ; height: 100%;box-shadow: inset 0px -250px 900px  ; );`
+    
         
         
         
-        
-        
-        
+        // eslint-disable-next-line 
       },[] )  
       
       
@@ -161,9 +169,17 @@ const Iteminfo = (props) => {
 
 
       
-      {/* <div id= 'backiteminfo'>BACKGROUND IMAGE </div> */}
 
-      <div id='iteminfo' className='   text-white flex mx-auto md:mt-3 w-fit  ' >
+
+      {/* Upper Part  */}
+
+      <div id='drop' className=' overflow-hidden ' >
+ 
+      <div id= 'backiteminfo' className='  overflow-hidden  ' ></div>
+
+     
+
+      <div id='iteminfo' className='   text-white flex mx-auto md:mt-[30px] mt-[20px] w-fit  ' >
 
     
 
@@ -314,24 +330,9 @@ const Iteminfo = (props) => {
 
 
 
-
-
-
-
-
-       
-
-      
-        {/* WatchNow Part  */}
         
-
-
-
-        {/* <div className='md:mt-[30px] bg-amber-600 text-black font-semibold rounded-xl mx-auto w-fit md:px-[10px] md:py-[5px] '>
-
-         <a href={details.homepage} rel="noreferrer" target='_blank' >Watch Now</a>  
-  </div> */}
         </div>
+
 
 
 
@@ -403,11 +404,15 @@ const Iteminfo = (props) => {
 
 
 
+        {/* WATCHNOW  */}
 
 
+         <div className='md:mt-[30px]  my-[20px] bg-black border-2 text-white font-semibold rounded-md mx-auto w-fit  px-[10px] py-[5px] '>
 
+         <a className=' font-bold ' href={details.homepage} rel="noreferrer" target='_blank' >Watch Now</a>  
+  </div>
 
-
+         </div>
 
 
 
@@ -416,11 +421,13 @@ const Iteminfo = (props) => {
          {/* CAST PART */}
 
 
+
+
          
             
 
 
-          <div className=' border-t-2  md:border-none md:bg-transparent flex flex-col justify-center mt-[10px] md:mt-[0px] ' >
+          <div className=' border-t-2  md:border-none bg-transparent flex flex-col justify-center  ' >
 
          <h1 id='infotitle' className='   text-center md:mx-auto text-white  h-fit py-2 md:min-w-[1190px] md:max-w-[1190px] md:mt-[50px]   md:text-4xl text-2xl   ' >
             CAST
