@@ -1,46 +1,77 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-
 import NoteContext from "../context/Notes/NoteContext";
+import more from "../images/More.png"
+  
+         
+         
+         
+
 
 const HomePage = () => {
   const a = useContext(NoteContext);
   return (
     <div
       id="homepage"
-      className="md:text-5xl text-2xl text-white  mx-[20px] md:mx-[70px]  "
+      className="md:text-5xl text-2xl  text-white mx-[15px] md:mx-[0px]  "
     >
-      <div className=" mt-[8px] md:mt-[50px] border-b-[2px] md:border-b-[4px] pb-[10px] md:pb-[20px] ">
-       <p id="ff" className="   md:text-[50px] font-semibold md:ml-[14px] ml-[4px]"> Latest Movies </p>
-        <p> {a.movies("now_playing")} </p>
-        <a href="/latest-movies"> <p className=" text-center mb-[20px] " > <button className=" md:text-lg md:px-2 md:py-1 rounded-lg shadow-lg  font-sans bg-blue-900 " >More</button> </p> </a>
+      
+
+      
+      <div className=" mt-[8px] md:mt-[50px]  pb-[10px] md:pb-[20px] ">
+
+        <div className=" flex  justify-between  items-center md:mx-[6vw] " >
+
+       <p id="f1" className="   md:text-[40px] md:mx-[12px] mx-[6px]">Top-Rated Movies </p>
+        <a href="/toprated-movies">  <button className=" flex items-center  text-[16px] lg:mr-[6px] text-sm md:px-[4px] px-[3px] py-[2px] rounded-md   md:py-1 font-medium  font-sans text-cyan-400 " >More<img className=" w-[10px] ml-[2px] md:w-[15px] md:ml-[4px]  md:mt-[3px] " src={more} alt="" /> </button></a>
+
+        </div>
+        <p id="hom2" className="flex overflow-x-auto max-w-fit mx-auto " > {a.movies("top_rated")}  </p>
+
+      </div>
+      <div className=" mt-[8px] md:mt-[20px]  pb-[10px] md:pb-[20px] ">
+
+        <div className=" flex justify-between  items-center md:mx-[6vw] " >
+
+       <p id="f" className="   md:text-[40px] md:mx-[12px] mx-[6px]"> Now Playing </p>
+        <a href="/latest-movies">  <button className="  flex items-center text-[16px] lg:mr-[6px] text-sm md:px-[4px] px-[3px] py-[2px] rounded-md   md:py-1  font-medium font-sans text-cyan-400 " >More <img className=" w-[10px] ml-[2px] md:w-[15px] md:ml-[4px]  md:mt-[3px] " src={more} alt="" /> </button></a>
+
+        </div>
+        <p id="hom1" className="flex overflow-x-auto  max-w-fit mx-auto " > {a.movies("now_playing")} </p>
         
+      </div>
+
+
+      <div className=" mt-[8px] md:mt-[20px]  pb-[10px] md:pb-[20px] ">
+
+        <div className=" flex  justify-between  items-center md:mx-[6vw]  " >
+
+       <p id="f2" className="   md:text-[40px] md:mx-[12px] mx-[6px]"> Upcoming Movies </p>
+        <a href="/upcoming-movies">  <button className=" flex items-center  text-[16px] lg:mr-[6px] text-sm md:px-[4px] px-[3px] py-[2px] rounded-md   md:py-1  font-medium font-sans text-cyan-400 " >More<img className=" w-[10px] ml-[2px] md:w-[15px] md:ml-[4px]  md:mt-[3px] " src={more} alt="" /> </button></a>
+
+        </div>
+        <p id="hom3" className="flex overflow-x-auto max-w-fit mx-auto " > {a.movies("upcoming")}  </p>
+
+      </div>
+
+
+      <div className=" mt-[8px] md:mt-[20px]  pb-[10px] md:pb-[20px] ">
+
+        <div className=" flex  justify-between items-center  md:mx-[6vw] " >
+
+       <p id="f3" className="   md:text-[40px] md:mx-[12px] mx-[6px]"> Popular Movies </p>
+        <a href="/popular-movies">  <button className=" flex items-center text-[16px]  lg:mr-[6px] text-sm md:px-[4px] px-[3px] py-[2px] rounded-md   md:py-1  font-medium font-sans text-cyan-400 " >More<img className=" w-[10px] ml-[2px] md:w-[15px] md:ml-[4px]  md:mt-[3px] " src={more} alt="" /> </button></a>
+
+        </div>
+        <p id="hom4" className="flex overflow-x-auto max-w-fit mx-auto " > {a.movies("popular")}  </p>
+
       </div>
 
 
 
 
       
-      <div className="mt-[8px] md:mt-[50px] border-b-[2px] md:border-b-[4px] pb-[10px] md:pb-[20px] ">
-       <p id="ff" className="   md:text-[50px] font-semibold md:ml-[14px] ml-[4px]"> Top Rated  </p>
-        <p> {a.movies("top_rated")} </p>
-        <a href="/toprated-movies"> <p className=" text-center mb-[20px] " ><button className=" md:text-lg md:px-2 md:py-1 rounded-lg shadow-lg  font-sans bg-blue-900 " >More</button></p> </a>
-        
-      </div>
-      <div className=" mt-[8px] md:mt-[50px] border-b-[2px] md:border-b-[4px] pb-[10px] md:pb-[20px] ">
-        <p id="ff" className="   md:text-[50px] font-semibold md:ml-[14px] ml-[4px]"> Upcoming Movies  </p>
-        <p> {a.movies("upcoming")} </p>
-        <a href="/upcoming-movies"> <p className=" text-center mb-[20px] " ><button className=" md:text-lg md:px-2 md:py-1 rounded-lg shadow-lg  font-sans bg-blue-900 " >More</button></p> </a>
-        
-      </div>
-
-      <div className=" mt-[8px] md:mt-[50px] pb-[10px] md:pb-[20px] ">
-       <p id="ff" className="   md:text-[50px] font-semibold md:ml-[14px] ml-[4px]"> Popular Movies  </p>
-        <p> {a.movies("popular")} </p>
-        <a href="/popular-movies"> <p className=" text-center mb-[20px] " ><button className=" md:text-lg md:px-2 md:py-1 rounded-lg shadow-lg  font-sans bg-blue-900 " >More</button></p> </a>
-        
-      </div>
-
+    
       
     </div>
   );

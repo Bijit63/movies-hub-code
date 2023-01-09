@@ -13,6 +13,7 @@ const Navbar = () => {
     }
     
 
+    
 
 
     const toggle = ()=>{
@@ -32,14 +33,15 @@ const Navbar = () => {
 
   return (
     <nav  className='  z-20 sticky  top-0 md:h-[70px] h-[60px]  '>
-        <ul id='navbar' className=' bg-amber-600 md:h-[70px]   h-[60px] z-10 box-border shadow-md flex justify-between items-center '>
+        <ul id='navbar' className='  md:h-[70px]   h-[60px] z-10 box-border shadow-md flex justify-between items-center '>
 
 
           
 
 
 
-            <Link to="/"><li className='text-white   md:text-4xl text-2xl flex items center  '> <img className=' w-[32px] mb-[6px] mx-1 md:mx-3 md:w-[45px] md:mb-[9px] ' src={logo} alt="" /> <button id='heading'  >Movies - Hub </button> </li></Link>
+            <a href="/"><li className='text-white   md:text-4xl text-2xl flex items center  '> <img className=' w-[30px] mb-[6px] mx-1 md:mx-5 md:w-[35px] md:mb-[9px] ' src={logo} alt="" /> <button id='heading'  > 
+            Movies-Hub </button> </li></a>
 
 
 
@@ -57,7 +59,7 @@ const Navbar = () => {
 
 
               <li className='md:mr-7 mr-4 text-white  ' >
-                <button onClick={leftm} className=" md:h-[40px] ">
+                <button id='menubar' onClick={leftm} className=" md:h-[40px] ">
             <hr className=' border-2 rounded-lg my-[7px] bg-white   w-[30px] md:w-[40px] h-[2px] md:h-[3px]'/>
             <hr className=' border-2 rounded-lg my-[7px] bg-white   w- [30px] md:w-[40px] h-[2px] md:h-[3px]'/>
             <hr className=' border-2 rounded-lg my-[7px] bg-white   w-[30px] md:w-[40px] h-[2px] md:h-[3px]'/>
@@ -105,20 +107,20 @@ const Navbar = () => {
 
         <div id='bottomnav' className='-z-20 -translate-y-[25px] md:-translate-y-[55px]  flex flex-col justify-center relative'>
 
-            <div id='genreNavbar' className=' h-[25px] md:h-[55px] shadow-black shadow-xs box-border  bg-white text-[#4b3073] font-medium text-xs md:text-base md:font-semibold flex border-b-[1px] border-[#F0BB0C] justify-around items-center  ' >
+            <div id='genreNavbar' className=' h-[25px] md:h-[55px] shadow-black shadow-xs box-border  bg-white text-[#4b3073] font-medium text-xs md:text-base md:font-semibold flex  justify-around items-center  ' >
 
-        <li className='cursor-pointer text-white items-center flex hover:bg-amber-600 hover:text-black active:text-amber-600 px-2 md:px-5 h-[25px] md:h-[55px] ' >Horror</li>
-        <li className='cursor-pointer text-white items-center flex hover:bg-amber-600 hover:text-black active:text-amber-600 px-2 md:px-5 h-[25px] md:h-[55px] ' >Comedy</li>
-        <li className='cursor-pointer text-white items-center flex hover:bg-amber-600 hover:text-black active:text-amber-600 px-2 md:px-5 h-[25px] md:h-[55px] ' >Adventurous</li>
-        <li className='cursor-pointer text-white items-center flex hover:bg-amber-600 hover:text-black active:text-amber-600 px-2 md:px-5 h-[25px] md:h-[55px] ' >Action</li>
-        <li className='cursor-pointer text-white items-center flex hover:bg-amber-600 hover:text-black active:text-amber-600 px-2 md:px-5 h-[25px] md:h-[55px] ' >Thriller</li>
-        <li className='cursor-pointer text-white items-center flex hover:bg-amber-600 hover:text-black active:text-amber-600 px-2 md:px-5 h-[25px] md:h-[55px] ' >Drama</li>
+       <li className='cursor-pointer text-white items-center flex hover:bg-slate-300 hover:text-black active:text-amber-600 px-2 md:px-5 h-[25px] md:h-[55px] ' >Horror</li> 
+        <li className='cursor-pointer text-white items-center flex hover:bg-slate-300 hover:text-black active:text-amber-600 px-2 md:px-5 h-[25px] md:h-[55px] ' >Comedy</li>
+        <li className='cursor-pointer text-white items-center flex hover:bg-slate-300 hover:text-black active:text-amber-600 px-2 md:px-5 h-[25px] md:h-[55px] ' >Adventurous</li>
+        <li className='cursor-pointer text-white items-center flex hover:bg-slate-300 hover:text-black active:text-amber-600 px-2 md:px-5 h-[25px] md:h-[55px] ' >Action</li>
+        <li className='cursor-pointer text-white items-center flex hover:bg-slate-300 hover:text-black active:text-amber-600 px-2 md:px-5 h-[25px] md:h-[55px] ' >Thriller</li>
+        <li className='cursor-pointer text-white items-center flex hover:bg-slate-300 hover:text-black active:text-amber-600 px-2 md:px-5 h-[25px] md:h-[55px] ' >Drama</li>
             </div>
 
 
 
         <div id='togglearrow' onClick={toggle} className=' flex justify-center ' >
-        <div className="md:h-[15px] md:w-[20px] h-[13px] w-[20px] cursor-pointer rounded-b-full bg-[#F0BB0C]  flex justify-center items-center " > <i id='arrimg' className=" text-black font-extrabold fa-solid fa-angle-down" ></i></div>
+        <div className="md:h-[15px] md:w-[20px] h-[13px] w-[20px] cursor-pointer rounded-b-full bg-white  flex justify-center items-center " > <i id='arrimg' className=" text-black font-extrabold fa-solid fa-angle-down" ></i></div>
         </div>
 
 

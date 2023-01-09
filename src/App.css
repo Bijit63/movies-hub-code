@@ -57,28 +57,29 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-/* #navbar{
-  background-color: rgb(240, 187, 12);
+#navbar{
+  background-color: rgb(11, 2, 69);
 
-} */
+}
 #genreNavbar{
   background-color:black;
+  box-shadow: inset 0px -1px 2px white ;
  
 }
  
- #homepage div {
+ /* #homepage div {
   font-family: 'Acme', sans-serif;
 
    
- }
+ } */
  #searchbar{
   box-sizing: border-box;
-  box-shadow: 0px 0px 7px white;
+  box-shadow: 0px 0px 6px rgba(255, 255, 255, 0.741);
  }
 
 
 #moviestype{
-  font-family: 'Acme', sans-serif;
+  font-family: 'Sofia Sans Semi Condensed', sans-serif;
   color: white;
 }
 /* #arrimg:active {
@@ -106,6 +107,7 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
   letter-spacing: 2px;
 }
 #backiteminfo{
+ 
   
   position: fixed;
   z-index: -1;
@@ -137,4 +139,144 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
       
       
     }
+  } */
+
+
+  #hom1::-webkit-scrollbar{
+            display: none;
+  }
+  #hom2::-webkit-scrollbar{
+            display: none;
+  }
+  #hom3::-webkit-scrollbar{
+            display: none;
+  }
+  #hom4::-webkit-scrollbar{
+            display: none;
+  }
+  #slider1::-webkit-scrollbar{
+            display: none;
+  }
+
+  #f{font-family: 'Tinos', serif;
+     letter-spacing: 0.7px;    
+  }
+  #f1{font-family: 'Tinos', serif;
+     letter-spacing: 0.7px;    
+  }
+  #f2{font-family: 'Tinos', serif;
+     letter-spacing: 0.7px;    
+  }
+  #f3{font-family: 'Tinos', serif;
+     letter-spacing: 0.7px;    
+  }
+
+  #trendbg{
+    position: absolute;
+  z-index: -1;
+  top:-70px;
+  /* left: 0px; */
+  width: 100vw;
+  box-shadow: inset 0px -150px 450px;
+  /* height: 200%; */
+  opacity: 0.6;
+  
+
+  }
+
+  #trendname{
+    font-family: 'Yeon Sung', cursive;
+    text-shadow: 0px 0px 20px black;
+  }
+  #trend1{
+    font-family: 'Inter', sans-serif;
+    text-shadow: 0px 0px 20px black;
+  }
+  #trendimg{
+    opacity: 0.8 ;
+    /* box-shadow: inset 0px -50px 4pxzzzzzzzz; */
+    
+
+    
+  }
+
+  #rightarr{
+    transform: rotate(180deg);
+    
+  }
+
+  #collectionbg{
+    position: absolute;
+  z-index: -1;
+  top:-70px;
+  /* left: 0px; */
+  width: 100vw;
+  box-shadow: inset 0px -150px 450px;
+  /* height: 200%; */
+  opacity: 0.6;
+  
+
+  }
+
+
+  #hhh{
+    box-shadow: 0px 0px 4px rgba(255, 255, 255, 0.441);
+    
+    
+  }
+
+  #hh{
+    font-family: 'Poppins', sans-serif;
+   
+   opacity:0;
+  }
+  #hhh:hover #hh{
+    
+ 
+    animation-name : example;
+    animation-duration: 95s;
+    animation-timing-function: ease-in-out ;
+    box-shadow: inset 0 -60px 45px black ;
+    
+
+ 
+  }
+  @keyframes example {
+  
+    0%   {opacity: 0;}
+
+
+    1% {opacity:0.99;
+      
+        
+    }
+    100% {opacity:1;}
+  }
+
+   #hhh:hover #ss{
+    
+    animation-name : ex;
+    animation-duration: 99s;
+    animation-timing-function: ease-in-out ;
+  
+  }
+  @keyframes ex {
+    0%{filter: blur(0px);}
+    1%{filter: blur(2px);}
+    100%{filter: blur(2.1px);}
+    
+  }
+
+
+  /* #itemss{
+    animation-name: ans;
+    animation-duration: s;
+    animation-timing-function: ease-in-out ;
+  }
+  @keyframes ans{
+
+    0%{scroll-margin: 0px;}
+    100%{scroll-margin: 1100px;}
+    
+
   } */

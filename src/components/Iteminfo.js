@@ -3,6 +3,7 @@ import { useEffect , useState } from 'react'
 import CastCard from './CastCard'
 import Item from "./Item.js"
 import YouTube  from 'react-youtube'
+import { useParams } from 'react-router-dom'
 
 const Iteminfo = (props) => {
 
@@ -12,31 +13,73 @@ const Iteminfo = (props) => {
     const [genre,setgenre] = useState([])
     const [cast,setcast]= useState([])
     const [videoID,setvideoID]= useState()
+    
+
+
+    // useparams
+    let paramsID = useParams().id;
+    let paramsName = useParams().name;
+
+    console.log(paramsID,paramsName)
+
+
+    
+
+    
    
     
     
     
 
     useEffect(() => {
-        fetch(`https://api.themoviedb.org/3/movie/${props.id}?api_key=7e5e27e6b51bcfd87532d3a63a2c2646&language=en-US`).then(data=> {return data.json()}).then(info=> {setdetails(info)
+
+
+      //TO GET THE DETAILS,YEAR,GENRE
+
+
+        fetch(`https://api.themoviedb.org/3/movie/${paramsID}?api_key=7e5e27e6b51bcfd87532d3a63a2c2646&language=en-US`).then(data=> {return data.json()}).then(info=> {setdetails(info);
             const date= new Date(info.release_date);
-            setyear(date.getFullYear())
-          
-            const rate = info.vote_average
+            setyear(date.getFullYear());
+            const rate = info.vote_average;
+            setrating(rate.toString().slice(0,3));
+            setgenre(info.genres);
+            
+
+
+            // TO GET THE BACKDROP IMAGE
+             
+              
+              let a= 'https://image.tmdb.org/t/p/original'.concat(info.backdrop_path);
+             
+              document.getElementById('backiteminfo').style=`background: url(${a}); background-repeat: repeat ;background-size: 100vw 100% ; height: 100%;box-shadow: inset 0px -250px 900px  ; `
+            }) 
            
-            setrating(rate.toString().slice(0,3))
 
 
-              setgenre(info.genres)
-          }  ) 
+
+
+
+         
+
+
+          
+
+
+
+
+
+
+          // TO GET THE CAST AND CREW
         
         
-          fetch(`https://api.themoviedb.org/3/movie/${props.id}/credits?api_key=7e5e27e6b51bcfd87532d3a63a2c2646&language=en-US`).then(data=> {return data.json()}).then(info=>{ setcast(info.cast) 
+          fetch(`https://api.themoviedb.org/3/movie/${paramsID}/credits?api_key=7e5e27e6b51bcfd87532d3a63a2c2646&language=en-US`).then(data=> {return data.json()}).then(info=>{ setcast(info.cast) 
          }) 
 
 
+         // TO GET TRAILER VIDEO 
+
           // eslint-disable-next-line 
-          fetch(`https://api.themoviedb.org/3/movie/${props.id}/videos?api_key=7e5e27e6b51bcfd87532d3a63a2c2646&language=en-US`).then(data=> {return data.json()}).then(info=>{ info.results.map(element=>
+          fetch(`https://api.themoviedb.org/3/movie/${paramsID}/videos?api_key=7e5e27e6b51bcfd87532d3a63a2c2646&language=en-US`).then(data=> {return data.json()}).then(info=>{ info.results.map(element=>
           {
             
             if(element.type==='Trailer')
@@ -49,20 +92,30 @@ const Iteminfo = (props) => {
         
 
 
-        // backdrop  
+        //TO GET THE BACKGROUND WALLPAPER
+        
 
         
-        let text1 = "https://image.tmdb.org/t/p/original";
-        let text2 = `${localStorage.getItem('backdrop')}`;
-        let  a = text1.concat(text2);
-       
-        document.getElementById('backiteminfo').style=`background: url(${a}); background-repeat: repeat ;background-size: 100vw 100% ; height: 100%;box-shadow: inset 0px -250px 900px  ; );`
-    
+
+
+
+
+        
         
         
         
         // eslint-disable-next-line 
       },[] )  
+
+      
+      
+          
+         
+
+
+
+
+      
       
       
       
@@ -80,13 +133,13 @@ const Iteminfo = (props) => {
 
         const rightclick1=()=>{
           
-          document.getElementById('slider1').scrollLeft=document.getElementById('slider1').scrollLeft+260;
+          document.getElementById('slider1').scrollLeft=document.getElementById('slider1').scrollLeft+226.4;
           // console.log(shift)
           // setshift(shift+170)
         }
         
         const leftclick1=()=>{
-          document.getElementById('slider1').scrollLeft=document.getElementById('slider1').scrollLeft-260;
+          document.getElementById('slider1').scrollLeft=document.getElementById('slider1').scrollLeft-226.4;
         }
         
         
@@ -168,12 +221,12 @@ const Iteminfo = (props) => {
 
 
 
-      
+     
 
 
       {/* Upper Part  */}
 
-      <div id='drop' className=' overflow-hidden ' >
+      <div id='drop' className='  ' >
  
       <div id= 'backiteminfo' className='  overflow-hidden  ' ></div>
 
@@ -246,7 +299,7 @@ const Iteminfo = (props) => {
         <i onClick={left1} class="fa-solid fa-caret-left bg-white text-black text-xl px-[1px]"></i>
 
 
-          <div id='sliderposter1' className=' w-[300px] bg-red-200  flex  scroll-smooth whitespace-nowrap  overflow-hidden ' >
+          <div id='sliderposter1' className=' w-[300px]  flex  scroll-smooth whitespace-nowrap  overflow-hidden ' >
 
            
 
@@ -341,8 +394,7 @@ const Iteminfo = (props) => {
 
 
 
-
-
+6.4
 
 
 
@@ -409,7 +461,7 @@ const Iteminfo = (props) => {
 
          <div className='md:mt-[30px]  my-[20px] bg-black border-2 text-white font-semibold rounded-md mx-auto w-fit  px-[10px] py-[5px] '>
 
-         <a className=' font-bold ' href={details.homepage} rel="noreferrer" target='_blank' >Watch Now</a>  
+         <a className=' font-bold ' href={details.homepage} rel="noreferrer" target='_blank' >Homepage</a>  
   </div>
 
          </div>
@@ -483,17 +535,17 @@ const Iteminfo = (props) => {
 
 
         <div className='hidden md:flex' >
-        <i id='leftclick1' onClick={leftclick1} className=" fa-solid fa-caret-left lg:mx-[38px] md:mx-[25px] mx-[0px] bg-slate-300 md:px-[12px] min-w-fit max-w-fit md:py-[7px] text-xl rounded-full text-black shadow-lg border-[2px] hover:border-white hover:text-white hover:bg-black hover:duration-300 border-black "></i>
+        <i id='leftclick1' onClick={leftclick1} className=" fa-solid fa-caret-left lg:mx-[25px] md:mx-[20px] mx-[0px] bg-slate-300 md:px-[12px] min-w-fit max-w-fit md:py-[7px] text-xl rounded-full text-black shadow-lg   border-[2px] hover:border-white hover:text-white hover:bg-black hover:duration-300 border-black "></i>
         </div>
 
 
-<div id='slider1'  className='cast flex justify-between text-white  md:py-5 overflow-x-scroll md:overflow-hidden scroll-smooth whitespace-nowrap  ' >
-  <Item  url={`https://api.themoviedb.org/3/movie/${props.id}/similar?api_key=7e5e27e6b51bcfd87532d3a63a2c2646&language=en-US&page=1`} wrap="flex-nowrap" h="md:min-h-[340px] md:max-h-[340px] "  w=" max-w-[150px] min-w-[150px] md:min-w-[220px] md:max-w-[220px]
-  " wimg=" min-w-[147px] max-w-[147px] md:min-w-[217px] md:max-w-[217px] "    /> 
+<div id='slider1'  className=' cast flex  justify-between text-white  md:py-5 overflow-x-scroll md:overflow-hidden scroll-smooth whitespace-nowrap  ' >
+  <Item  scroll='no' display='hidden' url={`https://api.themoviedb.org/3/movie/${paramsID}/similar?api_key=7e5e27e6b51bcfd87532d3a63a2c2646&language=en-US&page=1`} wrap="no" h="md:min-h-[340px] md:max-h-[340px] "  w=" max-w-[150px] min-w-[150px] md:min-w-[220px]  md:max-w-[220px] lg:min-w-[230px] lg:max-w-[230px]
+  " wimg=" min-w-[147px] max-w-[147px] md:min-w-[218px] md:max-w-[218px] lg:max-w-[228px] lg:min-w-[228px] "    /> 
 </div>
 
       <div className='hidden md:flex' >
-      <i id='rightclick1' onClick={rightclick1} className=" fa-solid fa-caret-right lg:mx-[38px] md:mx-[25px] mx-[0px] bg-slate-300 md:px-[12px] min-w-fit max-w-fit md:py-[7px] text-xl rounded-full text-black shadow-lg border-[2px] hover:border-white hover:text-white hover:bg-black hover:duration-300 border-black "></i>
+      <i id='rightclick1' onClick={rightclick1} className=" fa-solid fa-caret-right lg:mx-[25px] md:mx-[20px] mx-[0px] bg-slate-300 md:px-[12px] min-w-fit max-w-fit md:py-[7px] text-xl rounded-full text-black shadow-lg border-[2px] hover:border-white hover:text-white hover:bg-black hover:duration-300 border-black "></i>
       </div>
 
 
