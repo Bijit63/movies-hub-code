@@ -28,12 +28,12 @@ const Notestate = (props)=>{
         )
        
         }
-    
 
+  
 
 
     return(
-        <NoteContext.Provider value={{movies ,searchmovie} }>
+        <NoteContext.Provider value={{movies ,searchmovie } }>
             {props.children}
         </NoteContext.Provider>
     )

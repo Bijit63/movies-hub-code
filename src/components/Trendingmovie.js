@@ -4,147 +4,312 @@ import arr from "../images/Leftarr.png"
 
 
 
+
 const Trendingmovie = () => {
 
 
-    const [trendmovie, settrendmovie] = useState({})
-    const [collectionmovie, setcollectionmovie] = useState({})
+
+
+
+    const [Movie1, setMovie1] = useState({})
+    const [Movie2, setMovie2] = useState({})
+    const [Movie3, setMovie3] = useState({})
+    const [Movie4, setMovie4] = useState({})
+    const [dotn, setdotn] = useState(1)
+   
+    const clicked=()=>{
+      document.getElementById('leftmenu').className=" translate-x-[1000px] ease-in-out duration-100 absolute top-0 right-0 flex flex-col  bg-[#82C3EC] h-[100vh] w-[200px] md:w-[350px]"
+     }
+
  
 
 
     useEffect(() => {
 
-        fetch('https://api.themoviedb.org/3/trending/movie/week?api_key=7e5e27e6b51bcfd87532d3a63a2c2646').then(data=> {return data.json()}).then(info=>{
-          settrendmovie(info.results[0])
-          console.log(info.results[0])    
-         
-          
-          // .map((e)=>{ console.log(e.backdrop_path) })
 
-          
+      // Movie No.1 
+
+        fetch('https://api.themoviedb.org/3/trending/movie/week?api_key=7e5e27e6b51bcfd87532d3a63a2c2646').then(data=> {return data.json()}).then(info=>{
+          setMovie1(info.results[0])
+          // console.log(info.results[0])    
 
           const a= 'https://image.tmdb.org/t/p/original'.concat(info.results[0].backdrop_path);
              
-              document.getElementById('trendbg').style=`background: url(${a}); background-repeat: no-repeat no-repeat ;background-size: 100vw  ;  `
+              document.getElementById('trendbg').style=`background: url(${a}); background-repeat: no-repeat no-repeat ;background-size:100vw 660px ;  `  })
 
 
-          
 
-        })
-        fetch('https://api.themoviedb.org/3/discover/movie?api_key=7e5e27e6b51bcfd87532d3a63a2c2646&language=en-US&sort_by=revenue.desc').then(data=> { return data.json() }).then(info => {
 
-        setcollectionmovie(info.results[0])
+      // Movie No.2
 
-        const a= 'https://image.tmdb.org/t/p/original'.concat(info.results[0].backdrop_path);
+        fetch('https://api.themoviedb.org/3/movie/597?api_key=7e5e27e6b51bcfd87532d3a63a2c2646&language=en-US').then(data=> { return data.json() }).then(info => {
+
+        setMovie2(info)
+
+        const a= 'https://image.tmdb.org/t/p/original'.concat(info.backdrop_path);
              
-              document.getElementById('collectionbg').style=`background: url(${a}); background-repeat: no-repeat no-repeat ;background-size: 100vw  ;  `
+              document.getElementById('bg2').style=`background: url(${a}); background-repeat: no-repeat no-repeat ;background-size: 100vw 660px  ;  `
         })
+        
 
+      
+
+
+      //Movie No.3
+
+        fetch('https://api.themoviedb.org/3/movie/350312?api_key=7e5e27e6b51bcfd87532d3a63a2c2646&language=en-US').then(data=> { return data.json() }).then(info => {
+
+        setMovie3(info)
+
+        const a= 'https://image.tmdb.org/t/p/original'.concat(info.backdrop_path);
+             
+              document.getElementById('indbg').style=`background: url(${a}); background-repeat: no-repeat no-repeat ;background-size: 100vw 660px  ;  `
+        })
+        
 
         
+
+
+
+      // Movie No.4
+
+      fetch('https://api.themoviedb.org/3/movie/634649?api_key=7e5e27e6b51bcfd87532d3a63a2c2646&language=en-US').then(data=> { return data.json() }).then(info => {
+
+      setMovie4(info)
+
+      const a= 'https://image.tmdb.org/t/p/original'.concat(info.backdrop_path);
+           
+            document.getElementById('collectionbg').style=`background: url(${a}); background-repeat: no-repeat no-repeat ;background-size: 100vw 660px  ;  `
+      })
+      
+
+
+      // document.getElementById(`dot1`).checked =true;
         
       
     }, [])
 
-    setTimeout(() => {
-      document.getElementById('itemss').scrollLeft=document.getElementById('itemss').scrollLeft+1100;
-      
-    }, 4000);
 
+ 
+   
 
     const rightarr=()=>{
 
-      document.getElementById('itemss').scrollLeft=document.getElementById('itemss').scrollLeft+1100;
+      document.getElementById('itemss').scrollLeft=document.getElementById('itemss').scrollLeft+ window.innerWidth ;
+      // if(document.getElementById('itemss').scrollLeft+window.innerWidth<(window.innerWidth*3)+1)
+      // {
+      //   setdotn(dotn+1)
+      //   document.getElementById(`dot${dotn+1}`).checked =true;
+        
+      // }
       
     }
-
-
+    
+    
     const leftarr=()=>{
-
-      document.getElementById('itemss').scrollLeft=document.getElementById('itemss').scrollLeft-1100;
       
+      document.getElementById('itemss').scrollLeft=document.getElementById('itemss').scrollLeft-window.innerWidth;
+      // if(document.getElementById('itemss').scrollLeft+window.innerWidth>window.innerWidth)
+
+      // { 
+      //   setdotn(dotn-1)
+      //   document.getElementById(`dot${dotn-1}`).checked =true;
+        
+      // }
+    
     }
 
+
+ 
+      
+
+
+    
+
+
+    
 
 
 
 
   return (
-    <p>
-    <div className=' flex justify-around items-center h-[330px]  '>
+    
+    <div onClick={clicked} id='upperhome' className=' flex flex-col items-center   '>
+    
+
+    <div className=' min-h-[330px]  max-h-[330px] items-center h-full flex justify-between w-[100vw]  ' >
+
+    {/* <div onClick={leftarr} id='leftarr' className=' h-fit z-50 mx-[5px] md:mx-[20px] relative opacity-70 cursor-pointer lg:max-w-[60px] lg:min-w-[60px] md:min-w-[80px] md:max-w-[80px] min-w-[50px] max-w-[50px] ' >
+    <img src={arr} alt="" /></div>
+
+    <div onClick={rightarr} id='rightarr' className=' h-fit mx-[5px] md:mx-[20px] relative opacity-70 cursor-pointer lg:max-w-[60px] lg:min-w-[60px] z-50 md:min-w-[80px] md:max-w-[80px] min-w-[50px] max-w-[50px] ' >
+    <img src={arr} alt="" /></div> */}
 
 
-    <div id='trendbg' className=' h-[480px]  min-w-[100vw] ' ></div>
-    {/* <div id='collectionbg' className='h-[480px]  min-w-[100vw]' ></div> */}
-
-
-    <div onClick={leftarr} id='leftarr' className=' opacity-70 cursor-pointer lg:max-w-[60px] lg:min-w-[60px] md:min-w-[80px] md:max-w-[80px] min-w-[50px] max-w-[50px] ' >
-      <img src={arr} alt="" />
-      
-      
     </div>
 
-
-
-    <div id='itemss' className=' scroll-smooth max-w-[1100px] overflow-hidden flex ' >
-
-  
 
     
 
-    <div className=' flex justify-around items-center min-w-[1100px] max-w-[1100px]  h-full ' >
 
-      <div className='' >  
-    <p id='trend1' className=' text-[20px] md:text-[35px] lg:text-[45px] text-white  ' >
-     #1 Trending
-    </p>
-    <p className='text-white md:text-[55px]  text-[40px] lg:text-[78px]' id='trendname'>
-      {trendmovie.original_title}
-    </p>
+
+    {/* Cards , Name and Background  */}
+
+
+
+
+
+    <div id='itemss' className=' absolute scroll-smooth  overflow-hidden flex w-[100vw]  ' >
+
+    
+
+
+
+
+    {/* Movie 1  */}
+
+    <ul className=' flex flex-col   w-[100vw] ' >
+
+  <div className=' flex-col md:flex-row flex justify-center w-[100vw] mx-auto items-center h-[330px]  ' >
+      <div className=' md:mx-[30px] ' >  
+      
+        <div className= 'cursor-default text-white md:text-[52px] flex justify-center lg:w-[60vw] md:w-[50vw] text-[38px] lg:text-[70px]' id='trendname'>
+             {Movie1.original_title}
+        </div>
       </div>
 
-      <div className=' hidden md:flex ' >
-        <a href={`/details/${trendmovie.id}/${trendmovie.original_title}`}><img id='trendimg' className=' rounded-lg lg:h-[250px]  max-w-[140px] min-w-[140px] md:max-w-[160px] md:min-w-[160px] lg:max-w-[180px] lg:min-w-[180px] ' src={'https://image.tmdb.org/t/p/original'.concat(trendmovie.poster_path)} alt="" /></a>
+        <div className=' flex ' >
+          <a href={`/details/${Movie1.id}/${Movie1.original_title}`} className=' ' ><img id='trendimg' className=' rounded-lg lg:h-[250px]  max-w-[120px] min-w-[120px] md:max-w-[160px] md:min-w-[160px] lg:max-w-[180px] lg:min-w-[180px] ' src={'https://image.tmdb.org/t/p/original'.concat(Movie1.poster_path)} alt="" /></a>
+        </div>
+  </div>
+    
+
+      <div id='trendbg' className=' absolute z-[-1] h-[330px]  min-w-[100vw] ' ></div>
+
+      </ul>
+
+
+
+
+
+
+  {/* mOVIE 2  */}
+      
+    <ul className=' flex flex-col   w-[100vw] ' >
+
+  <div className=' flex-col md:flex-row flex justify-center w-[100vw] mx-auto items-center h-[330px]  ' >
+      <div className=' md:mx-[30px] ' >  
+      
+        <div className= 'cursor-default text-white md:text-[52px] flex justify-center lg:w-[60vw] md:w-[50vw] text-[38px] lg:text-[70px]' id='trendname'>
+             {Movie2.original_title}
+        </div>
       </div>
+
+        <div className=' flex ' >
+          <a href={`/details/${Movie2.id}/${Movie2.original_title}`} className=' ' ><img id='trendimg' className=' rounded-lg lg:h-[250px]  max-w-[120px] min-w-[120px] md:max-w-[160px] md:min-w-[160px] lg:max-w-[180px] lg:min-w-[180px] ' src={'https://image.tmdb.org/t/p/original'.concat(Movie2.poster_path)} alt="" /></a>
+        </div>
+  </div>
+    
+
+      <div id='bg2' className=' absolute z-[-1] h-[330px]  min-w-[100vw] ' ></div>
+
+      </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  {/* mOVIE 3 */}
+      
+    <ul className=' flex flex-col   w-[100vw] ' >
+
+  <div className=' flex-col md:flex-row flex justify-center w-[100vw] mx-auto items-center h-[330px]  ' >
+      <div className=' md:mx-[30px] ' >  
+      
+        <div className= 'cursor-default text-white md:text-[52px] flex justify-center lg:w-[60vw] md:w-[50vw] text-[38px] lg:text-[70px]' id='trendname'>
+             {Movie3.title}
+        </div>
+      </div>
+
+        <div className=' flex ' >
+          <a href={`/details/${Movie3.id}/${Movie3.title}`} className=' ' ><img id='trendimg' className=' rounded-lg lg:h-[250px]  max-w-[120px] min-w-[120px] md:max-w-[160px] md:min-w-[160px] lg:max-w-[180px] lg:min-w-[180px] ' src={'https://image.tmdb.org/t/p/original'.concat(Movie3.poster_path)} alt="" /></a>
+        </div>
+  </div>
+    
+
+      <div id='indbg' className=' absolute z-[-1] h-[330px]  min-w-[100vw] ' ></div>
+
+      </ul>
+
+
+      
+
+
+
+
+
+  {/* mOVIE 4  */}
+      
+    <ul className=' flex flex-col w-[100vw] ' >
+
+<div className=' flex-col md:flex-row flex justify-center w-[100vw] mx-auto items-center h-[330px]  ' >
+    <div className=' md:mx-[30px] ' >  
+    
+      <div className= 'cursor-default text-white md:text-[52px] flex justify-center lg:w-[60vw] md:w-[50vw] text-[38px] lg:text-[70px]' id='trendname'>
+           {Movie4.original_title}
+      </div>
+    </div>
+
+      <div className=' flex ' >
+        <a href={`/details/${Movie4.id}/${Movie4.original_title}`} className=' ' ><img id='trendimg' className=' rounded-lg lg:h-[250px]  max-w-[120px] min-w-[120px] md:max-w-[160px] md:min-w-[160px] lg:max-w-[180px] lg:min-w-[180px] ' src={'https://image.tmdb.org/t/p/original'.concat(Movie4.poster_path)} alt="" /></a>
+      </div>
+</div>
+  
+
+    <div id='collectionbg' className=' absolute z-[-1] h-[330px]  min-w-[100vw] ' ></div>
+
+    </ul>
+
+
 
 
     </div>
 
 
-    <div className=' flex justify-around items-center min-w-[1100px] max-w-[1100px]  h-full ' >
-
-      <div className='' >  
-    <p id='trend1' className=' text-[20px] md:text-[35px] lg:text-[45px] text-white  ' >
-     #1 Highest Box Office
-    </p>
-    <p className='text-white md:text-[55px]  text-[40px] lg:text-[78px]' id='trendname'>
-      {collectionmovie.original_title}
-    </p>
-      </div>
-
-      <div className=' hidden md:flex ' >
-        <a href={`/details/${collectionmovie.id}/${collectionmovie.original_title}`}><img id='trendimg' className=' rounded-lg lg:h-[250px]  max-w-[140px] min-w-[140px] md:max-w-[160px] md:min-w-[160px] lg:max-w-[180px] lg:min-w-[180px] ' src={'https://image.tmdb.org/t/p/original'.concat(collectionmovie.poster_path)} alt="" /></a>
-      </div>
 
 
-    </div>
+    {/* Dots  */}
 
-
-    </div>
-
-
-
-
-
-
-
-
-
-
-    <div onClick={rightarr} id='rightarr' className=' opacity-70 cursor-pointer lg:max-w-[60px] lg:min-w-[60px] md:min-w-[80px] md:max-w-[80px] min-w-[50px] max-w-[50px] ' >
-      <img src={arr} alt="" />
+    <div className='absolute  min-h-[330px]  max-h-[330px] flex items-end  z-[-10] ' >
+      <ul id='dots' className=' w-fit items-center mb-[13px]  flex h-fit justify-center opacity-100 '  >
+      <li id='dot1' className=' h-[15px] w-[15px] mx-[7px] rounded-full bg-white ' name="r"></li>
+      <li id='dot2' className=' h-[15px] w-[15px] mx-[7px] rounded-full bg-white ' name="r"></li>
+      <li id='dot3' className=' h-[15px] w-[15px] mx-[7px] rounded-full bg-white ' name="r"></li>
+      <li id='dot4' className=' h-[15px] w-[15px] mx-[7px] rounded-full bg-white ' name="r"></li>
+      </ul>
       
     </div>
+
+
+
+    
+
+
+
+
+
+
+
+    
 
 
 
@@ -152,7 +317,7 @@ const Trendingmovie = () => {
 
 
    
-    </p>
+    
   )
 }
 

@@ -2,8 +2,12 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 // import { Link } from 'react-router-dom'
 import logo from "../images/logo.png"
+import cross from '../images/cross.png'
 
 const Navbar = () => {
+
+  
+       
 
     const leftm=()=>{
         document.getElementById('leftmenu').className="flex translate-x-0 absolute ease-in-out duration-100 top-0 right-0 flex-col  bg-[#82C3EC] h-[100vh] w-[200px] md:w-[350px]"
@@ -13,6 +17,7 @@ const Navbar = () => {
     }
     
 
+    //   document.body.onclick=()=>{document.getElementById('leftmenu').className==="flex translate-x-0 absolute ease-in-out duration-100 top-0 right-0 flex-col  bg-[#82C3EC] h-[100vh] w-[200px] md:w-[350px]"?document.getElementById('leftmenu').className=" translate-x-[1000px] ease-in-out duration-100 absolute top-0 right-0 flex flex-col  bg-[#82C3EC] h-[100vh] w-[200px] md:w-[350px]":document.getElementById('leftmenu').className="flex translate-x-0 absolute ease-in-out duration-100 top-0 right-0 flex-col  bg-[#82C3EC] h-[100vh] w-[200px] md:w-[350px]"}
     
 
 
@@ -27,12 +32,13 @@ const Navbar = () => {
     }
 
     
+    
         
     
 
 
   return (
-    <nav  className='  z-20 sticky  top-0 md:h-[70px] h-[60px]  '>
+    <nav id='navmain' className='  z-20 sticky  top-0 md:h-[70px] h-[60px]  '>
         <ul id='navbar' className='  md:h-[70px]   h-[60px] z-10 box-border shadow-md flex justify-between items-center '>
 
 
@@ -71,21 +77,21 @@ const Navbar = () => {
 
 
                 
-            <ul id='leftmenu'  className="translate-x-[1000px] absolute top-0 right-0 flex-col  bg-[#82C3EC] h-[100vh] w-[200px] md:w-[350px]">
+            <ul id='leftmenu' className="translate-x-[1000px] absolute top-0 right-0 flex-col  bg-[#82C3EC] h-[100vh] w-[200px] md:w-[350px]">
 
                 
-                    <li  className=' h-[60px] md:h-[80px] border-b-2 bg-black my-0 flex flex-row' >  <span id='cross' className=' ml-[15px] md:ml-[28px] md:text-[40px] text-[28px] items-center flex cursor-pointer ' onClick={crossclicked} >x</span> </li>
+                    <li  className=' h-[60px] md:h-[70px] border-b-2 bg-black my-0 flex flex-row' >  <span id='cross' className=' ml-[15px] md:ml-[28px] md:text-[40px] text-[28px] items-center flex cursor-pointer ' onClick={crossclicked} ><img className='w-[32px]' src={cross} alt="" /></span> </li>
 
                     
-                    <li className=' mr-5 md:mr-9 ml-12 md:ml-[70px] text-base md:text-xl my-4  ' > <button className=' active:text-yellow-200 hover:text-white text-black ' > INDIA </button>  <hr className="text-white mt-1 border-1 mr-2 " /> </li>
-                    <li className=' mr-5 md:mr-9 ml-12 md:ml-[70px] text-base md:text-xl my-4  ' > <button className=' active:text-yellow-200 hover:text-white text-black ' > USA </button>  <hr className="text-white mt-1 border-1 mr-2 " /> </li>
-                    <li className=' mr-5 md:mr-9 ml-12 md:ml-[70px] text-base md:text-xl my-4  ' > <button className=' active:text-yellow-200 hover:text-white text-black ' >  AUSTRALIA  </button> <hr className="text-white mt-1 border-1 mr-2 " /> </li>
-                    <li className=' mr-5 md:mr-9 ml-12 md:ml-[70px] text-base md:text-xl my-4  ' > <button className=' active:text-yellow-200 hover:text-white text-black ' > FRANCE </button>  <hr className="text-white mt-1 border-1 mr-2 " /> </li>
-                    <li className=' mr-5 md:mr-9 ml-12 md:ml-[70px] text-base md:text-xl my-4  ' > <button className=' active:text-yellow-200 hover:text-white text-black ' > GERMANY </button>  <hr className="text-white mt-1 border-1 mr-2 " /> </li>
+                    <li className=' mr-5 md:mr-9 ml-12 md:ml-[70px] text-base md:text-xl my-4  ' > <button className=' active:text-yellow-200 text-white ' > INDIA </button>  <hr className="text-white mt-1 border-1 mr-2 " /> </li>
+                    <li className=' mr-5 md:mr-9 ml-12 md:ml-[70px] text-base md:text-xl my-4  ' > <button className=' active:text-yellow-200 text-white ' > USA </button>  <hr className="text-white mt-1 border-1 mr-2 " /> </li>
+                    <li className=' mr-5 md:mr-9 ml-12 md:ml-[70px] text-base md:text-xl my-4  ' > <button className=' active:text-yellow-200 text-white ' >  AUSTRALIA  </button> <hr className="text-white mt-1 border-1 mr-2 " /> </li>
+                    <li className=' mr-5 md:mr-9 ml-12 md:ml-[70px] text-base md:text-xl my-4  ' > <button className=' active:text-yellow-200 text-white ' > FRANCE </button>  <hr className="text-white mt-1 border-1 mr-2 " /> </li>
+                    <li className=' mr-5 md:mr-9 ml-12 md:ml-[70px] text-base md:text-xl my-4  ' > <button className=' active:text-yellow-200 text-white ' > GERMANY </button>  <hr className="text-white mt-1 border-1 mr-2 " /> </li>
                     
-                    <li className=' mr-5 md:mr-9 ml-12 md:ml-[70px] text-base md:text-xl my-4  ' > <button className=' active:text-yellow-200 hover:text-white text-black ' > CHINA </button>  <hr className="text-white mt-1 border-1 mr-2 " /> </li>
+                    <li className=' mr-5 md:mr-9 ml-12 md:ml-[70px] text-base md:text-xl my-4  ' > <button className=' active:text-yellow-200 text-white ' > CHINA </button>  <hr className="text-white mt-1 border-1 mr-2 " /> </li>
                   
-                    <li className=' mr-5 md:mr-9 ml-12 md:ml-[70px] text-black text-base md:text-base my-4   ' >Follow us on</li>
+                    <li className=' mr-5 md:mr-9 ml-12 md:ml-[70px] text-white text-base md:text-base my-4   ' >Follow us on</li>
 
 
                     <li className=' text-sm text-center md:text-lg my-1' >
@@ -109,12 +115,12 @@ const Navbar = () => {
 
             <div id='genreNavbar' className=' h-[25px] md:h-[55px] shadow-black shadow-xs box-border  bg-white text-[#4b3073] font-medium text-xs md:text-base md:font-semibold flex  justify-around items-center  ' >
 
-       <li className='cursor-pointer text-white items-center flex hover:bg-slate-300 hover:text-black active:text-amber-600 px-2 md:px-5 h-[25px] md:h-[55px] ' >Horror</li> 
-        <li className='cursor-pointer text-white items-center flex hover:bg-slate-300 hover:text-black active:text-amber-600 px-2 md:px-5 h-[25px] md:h-[55px] ' >Comedy</li>
-        <li className='cursor-pointer text-white items-center flex hover:bg-slate-300 hover:text-black active:text-amber-600 px-2 md:px-5 h-[25px] md:h-[55px] ' >Adventurous</li>
-        <li className='cursor-pointer text-white items-center flex hover:bg-slate-300 hover:text-black active:text-amber-600 px-2 md:px-5 h-[25px] md:h-[55px] ' >Action</li>
-        <li className='cursor-pointer text-white items-center flex hover:bg-slate-300 hover:text-black active:text-amber-600 px-2 md:px-5 h-[25px] md:h-[55px] ' >Thriller</li>
-        <li className='cursor-pointer text-white items-center flex hover:bg-slate-300 hover:text-black active:text-amber-600 px-2 md:px-5 h-[25px] md:h-[55px] ' >Drama</li>
+       
+            <a href="/toprated-movies"  >  <li className='cursor-pointer text-white items-center flex hover:bg-slate-300 hover:text-black active:text-amber-600 px-2 md:px-5 h-[25px] md:h-[55px] ' >Top-Rated</li></a>
+      <a href="/popular-movies"  > <li className='cursor-pointer text-white items-center flex hover:bg-slate-300 hover:text-black active:text-amber-600 px-2 md:px-5 h-[25px] md:h-[55px] ' >Popular</li></a>
+      <a href="/upcoming-movies"  > <li className='cursor-pointer text-white items-center flex hover:bg-slate-300 hover:text-black active:text-amber-600 px-2 md:px-5 h-[25px] md:h-[55px] ' >Upcoming</li></a>
+      <a href="/nowplaying"  > <li className='cursor-pointer text-white items-center flex hover:bg-slate-300 hover:text-black active:text-amber-600 px-2 md:px-5 h-[25px] md:h-[55px] ' >Now Playing</li></a>
+        
             </div>
 
 

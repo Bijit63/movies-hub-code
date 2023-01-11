@@ -4,6 +4,7 @@ import Itemcard from "./Itemcard";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Loader from "../images/Loader.gif"
 // import Loading from "./LoadingBar"
+import filter from '../images/Filter.png'
 
 
 
@@ -39,7 +40,7 @@ const Item = (props) => {
                           props.limit==="yes"?setitems(data.results.slice(0,6)):setitems(data.results)
 
                             settotalresults(data.total_results)
-                          // console.log(data.total_results)
+                          // console.log(data.results)
                           // console.log(page)
                           setpage(page+1)
                           
@@ -100,22 +101,28 @@ const Item = (props) => {
 
 
 
-    
+           const clicked=()=>{
+            document.getElementById('leftmenu').className=" translate-x-[1000px] ease-in-out duration-100 absolute top-0 right-0 flex flex-col  bg-[#82C3EC] h-[100vh] w-[200px] md:w-[350px]"
+           }
      
     
 
 
 
-  return <div>
+  return <div className={`${props.height}`} >
 
 
-{/* <div  className=" my-[30px] w-fit mx-auto px-[10px]   md:my-[45px] md:mb-[45px] "> */}
       
-       <p id="moviestype" className={` ${props.display} md:text-5xl text-2xl md:mt-[50px] mt-[20px]  justify-center px-4 my-1 md:my-2` }>{props.moviestype} </p> 
+       <div onClick={clicked} id="moviestype" className={` ${props.display}  justify-center items-center md:text-5xl text-2xl md:mt-[50px] mt-[20px]   px-4 my-1 md:my-2` }>
+       
+       {props.moviestype}
+        {/* <p className="md:w-[45px] w-[30px]" ><img src={filter} alt="" /></p> */}
+        
+         </div> 
        
       
       
-      {/* </div>  */}
+
 
      
 
@@ -129,7 +136,7 @@ const Item = (props) => {
           dataLength={items.length}
           next={props.scroll==='no'?no:yes}
           hasMore={items.length !==totalresults }
-          loader={props.scroll==='no'?"":<p className=" flex justify-center" ><img className=" md:w-[70px ] w-[40px] bg-transparent" src={Loader} alt="" /></p>}
+          loader={props.scroll==='no'?"":<div className=" flex justify-center" ><img className=" md:w-[70px ] w-[40px] bg-transparent" src={Loader} alt="" /></div>}
           >
 
     <div className={`flex justify-center ${props.scroll}   ${props.wrap==='no'?'':'flex-wrap'} `}>

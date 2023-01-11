@@ -16,8 +16,7 @@ import SearchedMovies from './components/SearchedMovies';
 import Iteminfo from './components/Iteminfo';
 import Footer from './components/Footer';
 import Trendingmovie from './components/Trendingmovie';
-// import LoadingBar from './components/LoadingBar';
-import Hhh from "./components/Hhh.js"
+
 
 
 
@@ -43,25 +42,25 @@ function App() {
 
           <Route exact path="/toprated-movies">
           <Searchbar/>
-          <Item display='flex'  moviestype="Top-Rated Movies" url={`https://api.themoviedb.org/3/movie/top_rated?api_key=7e5e27e6b51bcfd87532d3a63a2c2646`} />
+          <Item display='flex' height={'min-h-[100vh]'} moviestype="Top-Rated Movies" url={`https://api.themoviedb.org/3/movie/top_rated?api_key=7e5e27e6b51bcfd87532d3a63a2c2646`} />
           </Route>
 
 
-          <Route exact path="/latest-movies">
+          <Route exact path="/nowplaying">
           <Searchbar/>
-          <Item display='flex' moviestype="Now Playing Movies" url={`https://api.themoviedb.org/3/movie/now_playing?api_key=7e5e27e6b51bcfd87532d3a63a2c2646`} />
+          <Item display='flex' height={'min-h-[100vh]'} moviestype="Now Playing Movies" url={`https://api.themoviedb.org/3/movie/now_playing?api_key=7e5e27e6b51bcfd87532d3a63a2c2646`} />
           </Route>
       
 
           <Route exact path="/popular-movies">
           <Searchbar/>
-          <Item display='flex' moviestype="Popular Movies" url={`https://api.themoviedb.org/3/movie/popular?api_key=7e5e27e6b51bcfd87532d3a63a2c2646`} />
+          <Item display='flex' height={'min-h-[100vh]'} moviestype="Popular Movies" url={`https://api.themoviedb.org/3/movie/popular?api_key=7e5e27e6b51bcfd87532d3a63a2c2646`} />
           </Route>
 
 
           <Route exact path="/upcoming-movies">
           <Searchbar/>
-          <Item display='flex'  moviestype="Upcoming Movies" url={`https://api.themoviedb.org/3/movie/upcoming?api_key=7e5e27e6b51bcfd87532d3a63a2c2646`} />
+          <Item display='flex' height={'min-h-[100vh]'} moviestype="Upcoming Movies" url={`https://api.themoviedb.org/3/movie/upcoming?api_key=7e5e27e6b51bcfd87532d3a63a2c2646`} />
           </Route>
 
 
@@ -85,10 +84,7 @@ function App() {
 
 
 
-          <Route path={`/hhh`}>
-        
-          <Hhh/>
-          </Route> 
+          
 
 
          

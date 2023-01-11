@@ -5,7 +5,9 @@ import React from 'react'
 const Itemcard = (props) => {
 
   
-  
+  const clicked=()=>{
+    document.getElementById('leftmenu').className=" translate-x-[1000px] ease-in-out duration-100 absolute top-0 right-0 flex flex-col  bg-[#82C3EC] h-[100vh] w-[200px] md:w-[350px]"
+   }
 
   
 
@@ -17,10 +19,10 @@ const Itemcard = (props) => {
   
   return (
 
-      <a href={`/details/${props.id}/${props.title}`}>
+      <a onClick={clicked} href={`/details/${props.id}/${props.title}`}>
 
 
-        <div id='hhh' className=' rounded-[3px] md:my-[20px] flex md:mx-[18px] mx-[5px] my-[6px] md:w-[190px] h-[170px] max-w-[120px] md:max-w-[190px] md:h-[270px]  flex-col  ' >
+        <div onClick={clicked} id='hhh' className=' rounded-[3px] md:my-[20px] flex md:mx-[18px] mx-[5px] my-[6px] md:w-[190px] h-[170px] max-w-[120px] md:max-w-[190px] md:h-[270px]  flex-col  ' >
 
 
  

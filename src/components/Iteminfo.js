@@ -26,7 +26,9 @@ const Iteminfo = (props) => {
     
 
     
-   
+    const clicked=()=>{
+      document.getElementById('leftmenu').className=" translate-x-[1000px] ease-in-out duration-100 absolute top-0 right-0 flex flex-col  bg-[#82C3EC] h-[100vh] w-[200px] md:w-[350px]"
+     }
     
     
     
@@ -212,7 +214,7 @@ const Iteminfo = (props) => {
     
 
   return (
-    <div  className={`min-h-[100vh] flex flex-col mx-auto `} >
+    <div onClick={clicked} className={`min-h-[100vh] flex flex-col mx-auto `} >
 
 
 
@@ -253,7 +255,7 @@ const Iteminfo = (props) => {
 
 
         <h1 id='infotitle' className='  h-fit py-2  text-center md:text-left mx-auto text-2xl  md:text-4xl   ' >
-            {details.original_title +  " ( " +year+ " )"}
+            {paramsName +  " ( " +year+ " )"}
         </h1>
 
 
@@ -394,7 +396,7 @@ const Iteminfo = (props) => {
 
 
 
-6.4
+
 
 
 
