@@ -19,12 +19,14 @@ const Searchbar = () => {
           }
 
          
-
+          const clicked=()=>{
+            document.getElementById('leftmenu').className=" translate-x-[1000px] ease-in-out duration-100 absolute top-0 right-0 flex flex-col  bg-[#82C3EC] h-[100vh] w-[200px] md:w-[350px]"
+           }
           
  
 
   return (
-    <form id='searchbar' action={`/search=${value}`} className=' w-fit mx-auto my-[16px] flex justify-end rounded-md md:mt-[40px] border-black '>
+    <form onClick={clicked} id='searchbar' action={`/search=${value}`} className=' w-fit mx-auto my-[16px] flex justify-end rounded-md md:mt-[40px] border-black '>
 
  <input id='searchtext'  className=' w-[200px] md:w-[450px] h-[30px] md:h-[50px] font-semibold text-center md:text-base text-sm rounded-r-full md:rounded-r-none rounded-l-md  bg-transparent text-white ' type="search" onChange={onchange}   placeholder='Search' /> 
 
