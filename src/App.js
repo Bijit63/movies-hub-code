@@ -16,6 +16,7 @@ import SearchedMovies from './components/SearchedMovies';
 import Iteminfo from './components/Iteminfo';
 import Footer from './components/Footer';
 import Trendingmovie from './components/Trendingmovie';
+import Contact from './components/Contact';
 
 
 
@@ -78,6 +79,13 @@ function App() {
           <Route path={`/details/:id/:name`}>
         
           <Iteminfo   />
+          </Route> 
+
+
+
+          <Route path={`/contact-us`}>
+        
+          <Contact/>
           </Route> 
 
 

@@ -170,14 +170,14 @@ const Iteminfo = (props) => {
          
          const right=()=>{
            document.getElementById('sliderposter').scrollLeft=document.getElementById('sliderposter').scrollLeft+390;
-           document.getElementById('dot2').className='mx-[5px] bg-gray-400 rounded-full mt-[20px] w-[10px] h-[10px] '
-            document.getElementById('dot1').className='mx-[5px] bg-gray-400 rounded-full mt-[20px] w-[5px] h-[5px] '
+           document.getElementById('dott2').className='mx-[5px] bg-gray-400 rounded-full mt-[20px] w-[10px] h-[10px] '
+            document.getElementById('dott1').className='mx-[5px] bg-gray-400 rounded-full mt-[20px] w-[5px] h-[5px] '
            
           }
           const left =()=>{
             document.getElementById('sliderposter').scrollLeft=document.getElementById('sliderposter').scrollLeft-390;
-            document.getElementById('dot1').className='mx-[5px] bg-gray-400 rounded-full mt-[20px] w-[10px] h-[10px] '
-            document.getElementById('dot2').className='mx-[5px] bg-gray-400 rounded-full mt-[20px] w-[5px] h-[5px] '
+            document.getElementById('dott1').className='mx-[5px] bg-gray-400 rounded-full mt-[20px] w-[10px] h-[10px] '
+            document.getElementById('dott2').className='mx-[5px] bg-gray-400 rounded-full mt-[20px] w-[5px] h-[5px] '
            
          }
 
@@ -441,8 +441,8 @@ const Iteminfo = (props) => {
 
         {/* dots  */}
         <div className='flex items-center justify-center'>
-        <p id='dot1' className='mx-[5px] bg-gray-400 rounded-full mt-[20px] w-[10px] h-[10px] ' ></p>
-        <p id='dot2' className='mx-[5px] bg-gray-400 rounded-full mt-[20px] w-[5px] h-[5px] ' ></p>
+        <p id='dott1' className='mx-[5px] bg-gray-400 rounded-full mt-[20px] w-[10px] h-[10px] ' ></p>
+        <p id='dott2' className='mx-[5px] bg-gray-400 rounded-full mt-[20px] w-[5px] h-[5px] ' ></p>
         </div>
 
 

@@ -373,3 +373,27 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
 
 
 
+
+
+
+#fullname input{
+  box-shadow: 0px 0px 2px white;
+}
+
+#contactdetails input{
+  box-shadow: 0px 0px 2px white;
+}
+
+#address textarea{
+  box-shadow: 0px 0px 2px white;
+  resize: none;
+  
+}
+#message textarea{
+  box-shadow: 0px 0px 2px white;
+  resize: none;
+}
+
+#contacth1{
+  font-family: 'Poppins', sans-serif;
+}

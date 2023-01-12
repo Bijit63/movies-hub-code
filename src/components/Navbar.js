@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 // import { Link } from 'react-router-dom'
 import logo from "../images/logo.png"
@@ -6,7 +6,30 @@ import cross from '../images/cross.png'
 
 const Navbar = () => {
 
-  
+    
+    useEffect(() => {
+
+        window.location.pathname==='/'?document.getElementById('a0').className='  text-amber-600 cursor-pointer  items-center flex hover:bg-slate-300 hover:text-black  px-2 md:px-5 h-[25px] md:h-[55px]':document.getElementById('a0').className=' text-white cursor-pointer  items-center flex hover:bg-slate-300 hover:text-black  px-2 md:px-5 h-[25px] md:h-[55px]'
+
+
+        window.location.pathname==='/toprated-movies'?document.getElementById('a1').className='  text-amber-600 cursor-pointer  items-center flex hover:bg-slate-300 hover:text-black  px-2 md:px-5 h-[25px] md:h-[55px]':document.getElementById('a1').className=' text-white cursor-pointer  items-center flex hover:bg-slate-300 hover:text-black  px-2 md:px-5 h-[25px] md:h-[55px]'
+
+
+        window.location.pathname==='/popular-movies'?document.getElementById('a2').className='  text-amber-600 cursor-pointer  items-center flex hover:bg-slate-300 hover:text-black  px-2 md:px-5 h-[25px] md:h-[55px]':document.getElementById('a2').className=' text-white cursor-pointer  items-center flex hover:bg-slate-300 hover:text-black  px-2 md:px-5 h-[25px] md:h-[55px]'
+
+
+        window.location.pathname==='/upcoming-movies'?document.getElementById('a3').className='  text-amber-600 cursor-pointer  items-center flex hover:bg-slate-300 hover:text-black  px-2 md:px-5 h-[25px] md:h-[55px]':document.getElementById('a3').className=' text-white cursor-pointer  items-center flex hover:bg-slate-300 hover:text-black  px-2 md:px-5 h-[25px] md:h-[55px]'
+
+
+        window.location.pathname==='/nowplaying'?document.getElementById('a4').className='  text-amber-600 cursor-pointer  items-center flex hover:bg-slate-300 hover:text-black  px-2 md:px-5 h-[25px] md:h-[55px]':document.getElementById('a4').className=' text-white cursor-pointer  items-center flex hover:bg-slate-300 hover:text-black  px-2 md:px-5 h-[25px] md:h-[55px]'
+        
+
+
+
+
+      
+    }, [])
+    
        
 
     const leftm=()=>{
@@ -83,13 +106,13 @@ const Navbar = () => {
                     <li  className=' h-[60px] md:h-[70px] border-b-2 bg-black my-0 flex flex-row' >  <span id='cross' className=' ml-[15px] md:ml-[28px] md:text-[40px] text-[28px] items-center flex cursor-pointer ' onClick={crossclicked} ><img className='w-[32px]' src={cross} alt="" /></span> </li>
 
                     
-                    <li className=' mr-5 md:mr-9 ml-12 md:ml-[70px] text-base md:text-xl my-4  ' > <button className=' active:text-yellow-200 text-white ' > INDIA </button>  <hr className="text-white mt-1 border-1 mr-2 " /> </li>
-                    <li className=' mr-5 md:mr-9 ml-12 md:ml-[70px] text-base md:text-xl my-4  ' > <button className=' active:text-yellow-200 text-white ' > USA </button>  <hr className="text-white mt-1 border-1 mr-2 " /> </li>
+                    <li className=' mr-5 md:mr-9 ml-12 md:ml-[70px] text-base md:text-xl my-4  ' > <button className=' active:text-yellow-200 text-white ' > About Us </button>  <hr className="text-white mt-1 border-1 mr-2 " /> </li>
+                    <li className=' mr-5 md:mr-9 ml-12 md:ml-[70px] text-base md:text-xl my-4  ' > <button className=' active:text-yellow-200 text-white ' > Support </button>  <hr className="text-white mt-1 border-1 mr-2 " /> </li>
                     <li className=' mr-5 md:mr-9 ml-12 md:ml-[70px] text-base md:text-xl my-4  ' > <button className=' active:text-yellow-200 text-white ' >  AUSTRALIA  </button> <hr className="text-white mt-1 border-1 mr-2 " /> </li>
-                    <li className=' mr-5 md:mr-9 ml-12 md:ml-[70px] text-base md:text-xl my-4  ' > <button className=' active:text-yellow-200 text-white ' > FRANCE </button>  <hr className="text-white mt-1 border-1 mr-2 " /> </li>
+                    
                     <li className=' mr-5 md:mr-9 ml-12 md:ml-[70px] text-base md:text-xl my-4  ' > <button className=' active:text-yellow-200 text-white ' > GERMANY </button>  <hr className="text-white mt-1 border-1 mr-2 " /> </li>
                     
-                    <li className=' mr-5 md:mr-9 ml-12 md:ml-[70px] text-base md:text-xl my-4  ' > <button className=' active:text-yellow-200 text-white ' > CHINA </button>  <hr className="text-white mt-1 border-1 mr-2 " /> </li>
+                   <a href="/contact-us"> <li className=' mr-5 md:mr-9 ml-12 md:ml-[70px] text-base md:text-xl my-4  ' > <button className=' active:text-yellow-200 text-white ' > Contact Us</button>  <hr className="text-white mt-1 border-1 mr-2 " /> </li></a>
                   
                     <li className=' mr-5 md:mr-9 ml-12 md:ml-[70px] text-white text-base md:text-base my-4   ' >Follow us on</li>
 
@@ -116,10 +139,11 @@ const Navbar = () => {
             <div id='genreNavbar' className=' h-[25px] md:h-[55px] shadow-black shadow-xs box-border  bg-white text-[#4b3073] font-medium text-xs md:text-base md:font-semibold flex  justify-around items-center  ' >
 
        
-            <a href="/toprated-movies"  >  <li className='cursor-pointer text-white items-center flex hover:bg-slate-300 hover:text-black active:text-amber-600 px-2 md:px-5 h-[25px] md:h-[55px] ' >Top-Rated</li></a>
-      <a href="/popular-movies"  > <li className='cursor-pointer text-white items-center flex hover:bg-slate-300 hover:text-black active:text-amber-600 px-2 md:px-5 h-[25px] md:h-[55px] ' >Popular</li></a>
-      <a href="/upcoming-movies"  > <li className='cursor-pointer text-white items-center flex hover:bg-slate-300 hover:text-black active:text-amber-600 px-2 md:px-5 h-[25px] md:h-[55px] ' >Upcoming</li></a>
-      <a href="/nowplaying"  > <li className='cursor-pointer text-white items-center flex hover:bg-slate-300 hover:text-black active:text-amber-600 px-2 md:px-5 h-[25px] md:h-[55px] ' >Now Playing</li></a>
+            <a href="/" className=' '  >  <li id='a0' className='text-white cursor-pointer items-center flex hover:bg-slate-300 hover:text-black  px-2 md:px-5 h-[25px] md:h-[55px] ' >Home</li></a>
+            <a href="/toprated-movies" className=' '  >  <li id='a1' className='text-white cursor-pointer items-center flex hover:bg-slate-300 hover:text-black  px-2 md:px-5 h-[25px] md:h-[55px] ' >Top-Rated</li></a>
+      <a href="/popular-movies" className=''  > <li id='a2' className='text-white cursor-pointer  items-center flex hover:bg-slate-300 hover:text-black  px-2 md:px-5 h-[25px] md:h-[55px] ' >Popular</li></a>
+      <a href="/upcoming-movies" className=''  > <li id='a3' className='text-white cursor-pointer  items-center flex hover:bg-slate-300 hover:text-black  px-2 md:px-5 h-[25px] md:h-[55px] ' >Upcoming</li></a>
+      <a href="/nowplaying" className=''  > <li id='a4' className='text-white cursor-pointer  items-center flex hover:bg-slate-300 hover:text-black  px-2 md:px-5 h-[25px] md:h-[55px] ' >Now Playing</li></a>
         
             </div>
 
