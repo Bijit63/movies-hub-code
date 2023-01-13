@@ -33,10 +33,10 @@ const Navbar = () => {
        
 
     const leftm=()=>{
-        document.getElementById('leftmenu').className="flex translate-x-0 absolute ease-in-out duration-100 top-0 right-0 flex-col  bg-[#82C3EC] h-[100vh] w-[200px] md:w-[350px]"
+        document.getElementById('leftmenu').className=" fixed flex translate-x-0 ease-in-out duration-100 top-0 right-0 flex-col  bg-[#82C3EC] h-[100vh] w-[200px] md:w-[350px]"
     }
     const crossclicked=()=>{
-        document.getElementById('leftmenu').className=" translate-x-[1000px] ease-in-out duration-100 absolute top-0 right-0 flex flex-col  bg-[#82C3EC] h-[100vh] w-[200px] md:w-[350px]"
+        document.getElementById('leftmenu').className=" fixed  translate-x-[1000px] ease-in-out duration-100 top-0 right-0 flex flex-col  bg-[#82C3EC] h-[100vh] w-[200px] md:w-[350px]"
     }
     
 
@@ -100,17 +100,17 @@ const Navbar = () => {
 
 
                 
-            <ul id='leftmenu' className="translate-x-[1000px] absolute top-0 right-0 flex-col  bg-[#82C3EC] h-[100vh] w-[200px] md:w-[350px]">
+            <ul id='leftmenu' className="fixed translate-x-[1000px] top-0 right-0 flex-col  bg-[#82C3EC] h-[100vh] w-[200px] md:w-[350px]">
 
                 
                     <li  className=' h-[60px] md:h-[70px] border-b-2 bg-black my-0 flex flex-row' >  <span id='cross' className=' ml-[15px] md:ml-[28px] md:text-[40px] text-[28px] items-center flex cursor-pointer ' onClick={crossclicked} ><img className='w-[32px]' src={cross} alt="" /></span> </li>
 
                     
-                    <li className=' mr-5 md:mr-9 ml-12 md:ml-[70px] text-base md:text-xl my-4  ' > <button className=' active:text-yellow-200 text-white ' > About Us </button>  <hr className="text-white mt-1 border-1 mr-2 " /> </li>
-                    <li className=' mr-5 md:mr-9 ml-12 md:ml-[70px] text-base md:text-xl my-4  ' > <button className=' active:text-yellow-200 text-white ' > Support </button>  <hr className="text-white mt-1 border-1 mr-2 " /> </li>
-                    <li className=' mr-5 md:mr-9 ml-12 md:ml-[70px] text-base md:text-xl my-4  ' > <button className=' active:text-yellow-200 text-white ' >  AUSTRALIA  </button> <hr className="text-white mt-1 border-1 mr-2 " /> </li>
+                    <li className=' mr-5 md:mr-9 ml-12 md:ml-[70px] text-base md:text-xl my-4  ' > <button className=' active:text-yellow-200 text-white ' > About </button>  <hr className="text-white mt-1 border-1 mr-2 " /> </li>
+                    <li className=' mr-5 md:mr-9 ml-12 md:ml-[70px] text-base md:text-xl my-4  ' > <button className=' active:text-yellow-200 text-white ' >Premium Membership</button>  <hr className="text-white mt-1 border-1 mr-2 " /> </li>
+                    <li className=' mr-5 md:mr-9 ml-12 md:ml-[70px] text-base md:text-xl my-4  ' > <button className=' active:text-yellow-200 text-white ' > Reviews </button> <hr className="text-white mt-1 border-1 mr-2 " /> </li>
                     
-                    <li className=' mr-5 md:mr-9 ml-12 md:ml-[70px] text-base md:text-xl my-4  ' > <button className=' active:text-yellow-200 text-white ' > GERMANY </button>  <hr className="text-white mt-1 border-1 mr-2 " /> </li>
+                    <li className=' mr-5 md:mr-9 ml-12 md:ml-[70px] text-base md:text-xl my-4  ' > <button className=' active:text-yellow-200 text-white ' > Support </button>  <hr className="text-white mt-1 border-1 mr-2 " /> </li>
                     
                    <a href="/contact-us"> <li className=' mr-5 md:mr-9 ml-12 md:ml-[70px] text-base md:text-xl my-4  ' > <button className=' active:text-yellow-200 text-white ' > Contact Us</button>  <hr className="text-white mt-1 border-1 mr-2 " /> </li></a>
                   

@@ -24,7 +24,7 @@ const Contact = () => {
        <textarea rows='6' type="text" name='Message' className='bg-transparent focus: pl-[30px] w-[680px] pr-[30px] rounded-sm text-white py-[10px] '  placeholder='* Type your message here' />
        </div>
 
-        <button id='submit' className='text-black font-semibold mt-[30px] bg-white px-[10px] py-[2px] rounded-sm '> Submit </button>
+        <button id='submit' className='text-black font-semibold mt-[30px] bg-slate-100 px-[10px] py-[2px] rounded-sm hover:bg-slate-300 '> Submit </button>
         
     </div>
   )

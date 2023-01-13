@@ -104,6 +104,15 @@ const Item = (props) => {
            const clicked=()=>{
             document.getElementById('leftmenu').className=" translate-x-[1000px] ease-in-out duration-100 absolute top-0 right-0 flex flex-col  bg-[#82C3EC] h-[100vh] w-[200px] md:w-[350px]"
            }
+
+
+           const clickedd=()=>{
+            
+            document.getElementById('filtersec').className==="max-h-[0px] w-[88vw] justify-around flex duration-100 text-md  overflow-hidden px-[15px]"?document.getElementById('filtersec').className="h-fit w-[88vw] justify-around flex duration-100 text-md  overflow-hidden px-[15px]":document.getElementById('filtersec').className="max-h-[0px] w-[88vw] justify-around flex duration-100 text-md  overflow-hidden px-[15px]"
+
+
+
+           }
      
     
 
@@ -113,10 +122,56 @@ const Item = (props) => {
 
 
       
-       <div onClick={clicked} id="moviestype" className={` ${props.display}  justify-center items-center md:text-5xl text-2xl md:mt-[50px] mt-[20px]   px-4 my-1 md:my-2` }>
+       <div onClick={clicked} className={` ${props.display} flex-col  justify-center items-center md:mt-[50px] mt-[20px]   px-4 my-1 md:my-2` }>
        
-       {props.moviestype}
-        {/* <p className="md:w-[45px] w-[30px]" ><img src={filter} alt="" /></p> */}
+       <div className="flex" >
+          <div id="moviestype" className="md:text-5xl text-2xl ">{props.moviestype}</div>
+          {/* <div className="md:w-[40px] w-[30px] mx-[10px] "  >
+            <img src={filter} onClick={clickedd} alt="" className="cursor-pointer" />
+          </div> */}
+       </div>
+
+
+       {/* <div id="filtersec" className="max-h-[0px] w-[88vw] justify-around flex duration-100 text-md  overflow-hidden px-[15px]">
+        
+           <div className="text-[18px] flex flex-col w-[40vw] text-white mt-[5px] " >
+             <h1 className="text-center" >Sort By </h1> 
+            <p className='bg-red-200 flex  mt-[5px]'>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi error aliquid molestiae perspiciatis repellendus impedit minus ipsum illo maiores, odio deserunt ea, hic voluptatum natus porro quisquam mollitia enim pariatur nostrum? Minus sit porro nisi aspernatur commodi. Incidunt, veritatis, quam molestiae, mollitia beatae dicta facere voluptatibus sed earum asper
+            </p>
+           </div>
+
+
+
+           <div className="text-[18px] flex flex-col w-[40vw] text-white mt-[5px] " >
+            <h1 className="text-center" >Genre</h1> 
+            <div id="genres" className=" flex flex-wrap mt-[5px] justify-start ">
+            <p className="mx-[9px] my-[4px]" >Action</p>
+            <p className="mx-[9px] my-[4px]" >Adventure</p>
+            <p className="mx-[9px] my-[4px]" >Animation</p>
+            <p className="mx-[9px] my-[4px]" >Comedy</p>
+            <p className="mx-[9px] my-[4px]" >Crime</p>
+            <p className="mx-[9px] my-[4px]" >Documentary</p>
+            <p className="mx-[9px] my-[4px]" >Drama</p>
+            <p className="mx-[9px] my-[4px]" >Family</p>
+            <p className="mx-[9px] my-[4px]" >Fantasy</p>
+            <p className="mx-[9px] my-[4px]" >History</p>
+            <p className="mx-[9px] my-[4px]" >Horror</p>
+            <p className="mx-[9px] my-[4px]" >Music</p>
+            <p className="mx-[9px] my-[4px]" >Mystery</p>
+            <p className="mx-[9px] my-[4px]" >Romance</p>
+            <p className="mx-[9px] my-[4px]" >Science-Fiction</p>
+            <p className="mx-[9px] my-[4px]" >Thriller</p>
+            <p className="mx-[9px] my-[4px]" >War</p>
+            <p className="mx-[9px] my-[4px]" >Western</p>
+            </div>
+           </div>
+       
+
+
+        </div> */}
+
+
         
          </div> 
        

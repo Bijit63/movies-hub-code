@@ -39,12 +39,17 @@ const Iteminfo = (props) => {
       //TO GET THE DETAILS,YEAR,GENRE
 
 
-        fetch(`https://api.themoviedb.org/3/movie/${paramsID}?api_key=7e5e27e6b51bcfd87532d3a63a2c2646&language=en-US`).then(data=> {return data.json()}).then(info=> {setdetails(info);
+      document.getElementById('iteminfomain').className=  ` hidden min-h-[100vh] flex flex-col mx-auto `
+        fetch(`https://api.themoviedb.org/3/movie/${paramsID}?api_key=7e5e27e6b51bcfd87532d3a63a2c2646&language=en-US`).
+        then(data=> {
+          return data.json()}).then(info=> {setdetails(info);
+
             const date= new Date(info.release_date);
             setyear(date.getFullYear());
             const rate = info.vote_average;
             setrating(rate.toString().slice(0,3));
             setgenre(info.genres);
+            document.getElementById('iteminfomain').className=  `min-h-[100vh] flex flex-col mx-auto `
             
 
 
@@ -74,7 +79,9 @@ const Iteminfo = (props) => {
           // TO GET THE CAST AND CREW
         
         
-          fetch(`https://api.themoviedb.org/3/movie/${paramsID}/credits?api_key=7e5e27e6b51bcfd87532d3a63a2c2646&language=en-US`).then(data=> {return data.json()}).then(info=>{ setcast(info.cast) 
+          fetch(`https://api.themoviedb.org/3/movie/${paramsID}/credits?api_key=7e5e27e6b51bcfd87532d3a63a2c2646&language=en-US`).then(data=> {
+            
+          return data.json()}).then(info=>{ setcast(info.cast) 
          }) 
 
 
@@ -214,7 +221,11 @@ const Iteminfo = (props) => {
     
 
   return (
-    <div onClick={clicked} className={`min-h-[100vh] flex flex-col mx-auto `} >
+    <div onClick={clicked} className='min-h-[100vh] '  >
+
+      <div id='iteminfomain' className={`min-h-[100vh] flex flex-col mx-auto `} >
+
+      
 
 
 
@@ -581,7 +592,7 @@ const Iteminfo = (props) => {
 
 
 
-
+</div>
 
 
 
