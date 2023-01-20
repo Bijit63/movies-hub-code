@@ -552,9 +552,8 @@ const Iteminfo = (props) => {
         </div>
 
 
-<div id='slider1'  className=' cast flex  justify-between text-white  md:py-5 overflow-x-scroll md:overflow-hidden scroll-smooth whitespace-nowrap  ' >
-  <Item  scroll='no' display='hidden' url={`https://api.themoviedb.org/3/movie/${paramsID}/similar?api_key=7e5e27e6b51bcfd87532d3a63a2c2646&language=en-US&page=1`} wrap="no" h="md:min-h-[340px] md:max-h-[340px] "  w=" max-w-[150px] min-w-[150px] md:min-w-[220px]  md:max-w-[220px] lg:min-w-[230px] lg:max-w-[230px]
-  " wimg=" min-w-[147px] max-w-[147px] md:min-w-[218px] md:max-w-[218px] lg:max-w-[228px] lg:min-w-[228px] "    /> 
+<div id='slider1'  className='flex  justify-between text-white  md:py-5 overflow-x-scroll md:overflow-hidden scroll-smooth   ' >
+  <Item  scroll='no' display='hidden' url={`https://api.themoviedb.org/3/movie/${paramsID}/similar?api_key=7e5e27e6b51bcfd87532d3a63a2c2646&language=en-US&page=1`} wrap="no"    /> 
 </div>
 
       <div className='hidden md:flex' >

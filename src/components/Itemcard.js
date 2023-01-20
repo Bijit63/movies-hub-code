@@ -1,5 +1,5 @@
 import React from 'react'
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 
 const Itemcard = (props) => {
@@ -19,7 +19,7 @@ const Itemcard = (props) => {
   
   return (
 
-      <a onClick={clicked} href={`/details/${props.id}/${props.title}`}>
+      <Link onClick={clicked} to={`/details/${props.id}/${props.title}`}>
 
 
         <div onClick={clicked} id='hhh' className=' rounded-[3px] md:my-[20px] flex md:mx-[18px] mx-[5px] my-[6px] md:w-[190px] h-[170px] max-w-[120px] md:max-w-[190px] md:h-[270px]  flex-col  ' >
@@ -35,7 +35,7 @@ const Itemcard = (props) => {
 
  
 
- <p id='hh'   className='md:h-[272px] rounded-[3px] md:w-[193px] w-[122px] h-[172px] pb-[2px] px-[6px] md:pb-[6px] md:px-[6px]  flex items-end justify-center ' >
+ <p id='hh'   className='md:h-[272px] rounded-[3px] md:w-[193px] w-[122px] h-[172px] pb-[2px] px-[6px] md:pb-[6px] md:px-[6px] flex items-end justify-center ' >
  {/* {props.title.length>30?props.title.slice(0,30):props.title} */}
  {props.title}
 </p>
@@ -48,7 +48,7 @@ const Itemcard = (props) => {
 </div>
 
 
-            </a>
+            </Link> 
   )
 }
 

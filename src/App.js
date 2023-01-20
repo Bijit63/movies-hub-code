@@ -7,11 +7,13 @@ import Navbar from './components/Navbar';
 import Searchbar from './components/Searchbar';
 import Notestate from './context/Notes/Notestate';
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Switch,
   Route,
   
+  
 } from "react-router-dom";
+
 import SearchedMovies from './components/SearchedMovies';
 import Iteminfo from './components/Iteminfo';
 import Footer from './components/Footer';
